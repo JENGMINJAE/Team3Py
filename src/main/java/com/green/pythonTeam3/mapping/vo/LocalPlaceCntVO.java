@@ -1,4 +1,4 @@
-package com.green.pythonTeam3.mapping;
+package com.green.pythonTeam3.mapping.vo;
 
 import lombok.Getter;
 import lombok.Setter;

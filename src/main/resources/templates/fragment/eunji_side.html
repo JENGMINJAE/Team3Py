@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+   
+    
     <th:block th:fragment="eunjiSideFragment">
+        <!-- html 코드 작성 -->
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        지도
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" id="map">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </th:block>
+    
+</html>
+    
+    <!-- <th:block th:fragment="eunjiSideFragment">
+        <link rel="stylesheet" href="/css/eunji_side.css">
+        <script src="/js/eunji_side.js"></script>
+
+        <div class="row">
+            <div class="col" id="map">
+                
+            </div>
+        </div>
         <h1 style="color: white;">지도</h1>
     </th:block>
-</html>
+</html> -->

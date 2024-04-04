@@ -5,13 +5,13 @@
 <meta charset="UTF-8">
 <title>화재어쩌구저쩌구</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/common.css">
+<!-- <link rel="stylesheet" href="/css/common.css"> -->
+<link rel="stylesheet" href="/css/eunji_side.css">
 <style>
     div {border: 1px solid black; border-collapse: collapse}
     .headerRow {height: 140px;
                 background-color: skyblue;}
-    .eunji {height: 550px;
-            background-color: indianred;}
+    .eunji {height: 550px;}
     .songminjae {height: 400px;}
     .jiwoo {height: 250px;
             background-color: olivedrab;}
@@ -23,31 +23,32 @@
     <div class="container" style="border: 1px solid black;">
         <div class="row headerRow">
             <div class="col">
-                <th:bolck th:replace="~{fragment/main_header::headerFragment}"></th:bolck>
+                <th:block th:replace="~{fragment/main_header::headerFragment}"></th:block>
             </div>
         </div>
         <div class="row firstContentRow">
             <div class="col-5">
                 <div class="row jiwoo">
                     <div class="col">
-                        <th:bolck th:replace="~{fragment/jiwoo_side::jiwooSideFragment}"></th:bolck>
+                        <th:block th:replace="~{fragment/jiwoo_side::jiwooSideFragment}"></th:block>
                     </div>
                 </div>
                 <div class="row eunji">
                     <div class="col">
-                        <th:bolck th:replace="~{fragment/eunji_side::eunjiSideFragment}"></th:bolck>
+                        <th:block th:replace="~{fragment/eunji_side::eunjiSideFragment}"></th:block>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-7">
                 <div class="row songminjae minjae">
                     <div class="col">
-                        <th:bolck th:replace="~{fragment/minjae_side::minjaeSideFragment}"></th:bolck>
+                        <th:block th:replace="~{fragment/minjae_side::minjaeSideFragment}"></th:block>
                     </div>
                 </div>
                 <div class="row songminjae songmin">
                     <div class="col">
-                        <th:bolck th:replace="~{fragment/songmin_side::songminSideFragment}"></th:bolck>
+                        <th:block th:replace="~{fragment/songmin_side::songminSideFragment}"></th:block>
                     </div>
                 </div>
             </div>
@@ -58,8 +59,11 @@
             </div>
         </div>
     </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="/js/eunji_side.js" type="module"></script>
     <th:block layout:fragment="content_js">
         
+        <!-- <script src="/js/eunji_side.js"></script> -->
     </th:block>
 </body>
 </html>

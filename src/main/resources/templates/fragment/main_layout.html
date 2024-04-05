@@ -19,7 +19,7 @@
             background-color: olivedrab;
             margin-left: 20px;}
     .minjae {background-color: mediumslateblue;}
-    .songmin {background-color: sandybrown;}
+    .img {background-color: white;}
 </style>
 </head>
 <body>
@@ -46,7 +46,14 @@
             <div class="col-7">
                 <div class="row songminjae minjae">
                     <div class="col">
-                        <th:block th:replace="~{fragment/minjae_side::minjaeSideFragment}"></th:block>
+                        <div class="row">
+                            <div class="col-8">
+                                <th:block th:replace="~{fragment/minjae_side::minjaeSideFragment}"></th:block>
+                            </div>
+                            <div class="col-4 img">
+                                <th:block th:replace="~{fragment/img_side::imgFragment}"></th:block>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row songminjae songmin">

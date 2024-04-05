@@ -5,15 +5,18 @@ import * as d3 from 'https://cdn.skypack.dev/d3@v5.15.0';
 
 const topoDataPath = '/json/topoKorea.json';
 
+// Topo 연결하고 json 언어 번역하기
 async function loadTopoData(){
   const response = await fetch(topoDataPath)
   return await response.json();
 }
 
+// 지도 Json 데이터 가져오기
 function getGeoJson(topoData){
   return topojson.feature(topoData, topoData.objects.skorea_provinces_2018_geo);
 }
 
+// 가져온 지도 렌더링 데이터 크기 조절
 function getRenderData(){
   return{
     width: 550,
@@ -22,9 +25,11 @@ function getRenderData(){
   };
 }
 
+// 지도 렌더링 작업 함수
 function renderMap(topoData, renderData){
   const geoJson = getGeoJson(topoData);
 
+  // d3의 렌더 width, height 변경
   const svg = d3
     .create('svg')
     .attr('width', renderData.width)
@@ -58,7 +63,7 @@ function renderMap(topoData, renderData){
     stage
       .selectAll('.geopath')
       .filter(td => td.properties.name === d.properties.name)
-      .attr('fill', 'red');
+      .attr('fill', 'red'); // 마우스 hover 시 변화
     infoText.text(d.properties.name);
   };
 

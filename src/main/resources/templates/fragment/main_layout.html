@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-    <div class="container" style="border: 1px solid black;">
+    <div class="container-fluid" style="border: 1px solid black;">
         <div class="row headerRow">
             <div class="col">
                 <th:block th:replace="~{fragment/main_header::headerFragment}"></th:block>
@@ -61,8 +61,6 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="/js/eunji_side.js" type="module"></script>
     <th:block layout:fragment="content_js">
-        
-        <!-- <script src="/js/eunji_side.js"></script> -->
     </th:block>
 </body>
 </html>

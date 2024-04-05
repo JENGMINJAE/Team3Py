@@ -20,7 +20,7 @@ function getGeoJson(topoData){
 function getRenderData(){
   return{
     width: 550,
-    height: 550,
+    height: 540,
     margin: 50,
   };
 }
@@ -63,7 +63,7 @@ function renderMap(topoData, renderData){
     stage
       .selectAll('.geopath')
       .filter(td => td.properties.name === d.properties.name)
-      .attr('fill', 'red'); // 마우스 hover 시 변화
+      .attr('hover', `<div style="background-color: antiquewhite; width: 150px; height: 150px;"></div>`); // 마우스 hover 시 변화
     infoText.text(d.properties.name);
   };
 

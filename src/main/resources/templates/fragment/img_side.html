@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+
     <th:block th:fragment="imgFragment">
         <div class="row" style="height: 390px; padding: 10px;">
             <div class="col" style="display: inline-block; position: relative;">
@@ -27,18 +29,15 @@
                 </div>
                 <div class="row" onmouseover="changeToColorImage()" onmouseout="changeToBlackAndWhiteImage()">
                     <div class="col" style="display: inline-block; position: absolute;">
-                        <img src="/img/firefighter_black.jpg" style="margin-left: 20px; width: 280px; height: 280px;" id="imageToChange">
+                        <img src="/img/firefighter_black.jpg" style="margin-left: 20px; width: 280px; height: 280px;" id="imageToChange1">
                     </div>
                     <div class="col">
-                        <img src="/img/firefighter_color.jpg" style="margin-left: 20px; width: 280px; height: 280px;" id="imageToChange">
+                        <img src="/img/firefighter_color.jpg" style="margin-left: 20px; width: 280px; height: 280px;" id="imageToChange2">
                     </div>
                 </div>
             </div>
         </div>
     </th:block>
 
-    <th:block layout:fragment="content_js">
-        <script src="/js/img_side.js"></script>
-    </th:block>
-    
+
 </html>

@@ -16,4 +16,6 @@ public class FirePlaceVO {
     private int victimPercent; // 사고자인원수
     private int numberOfCasualties; // 인명피해인원수
     private String fireLocation; // 화재장소구분명
+    // 토탈
+    private int count;
 }

@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
     <th:block th:fragment="headerFragment">
-        <h1 style="color: white;">header</h1>
+        <div class="row mt-3">
+            <div class="col-4">
+                <h1 style="color: white;">화재모니터링 시스템</h1>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-11">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><h3>년도별 화재피해</h3></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/sido/sidoFirst"><h3>시도별 화재피해</h3></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><h3>화재피해 장소</h3></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><h3>화재피해 원인</h3></a>
+                    </li>
+                </ul>
+            </div>
+        </div>            
     </th:block>
 </html>

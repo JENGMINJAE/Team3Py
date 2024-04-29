@@ -13,8 +13,19 @@ public class SidoController {
     @Resource(name = "sidoService")
     private SidoServiceImpl stuTestService;
 
+    // 시도별 2021~20323 화재피해액 데이터
     @GetMapping("/sidoFirst")
     public String sidoFirst(){
         return "/content/sido/sido_property";
     }
+
+
+    // 각 시도의 월별 2021~2023 화재피애액 데이터
+    @GetMapping("/sidoMonth")
+    public String sidoMonth(){
+
+        return "/content/sido/sido_month_property";
+    }
+
+
 }

@@ -32,10 +32,15 @@ fetch('/graph/graphFetch', { //요청경로
         },
         options: {
             title: {
-                display: true,
-                text: 'Population growth (millions): Europe & Africa'
+                display: true
             },
-            legend: { display: false }
+            legend: { display: false },
+            scale : {
+                y : {
+                    min : 0,
+                    max : 5000
+                }
+            }
         }
     });
 })

@@ -14,4 +14,6 @@ public class Python4VO {
     private String sidoNm;
     private int ocrnMnb;
     private int prptDmgSbttAmt;
+    private int totalOcrn;
+    private long totalPrpt;
 }

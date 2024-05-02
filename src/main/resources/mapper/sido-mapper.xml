@@ -3,7 +3,129 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="sidoMapper">
-	
+
+    <resultMap id="python4" type="com.green.pythonTeam3.sido.vo.Python4VO">
+        <id column="PROPERTY_CODE"      property="propertyCode"/>
+        <result column="OCRN_MONTH"         property="ocrnMonth"/>
+        <result column="SIDO_NM"            property="sidoNm"/>
+        <result column="OCRN_MNB"           property="ocrnMnb"/>
+        <result column="PRPT_DMG_SBTT_AMT"  property="prptDmgSbttAmt"/>
+        <result column="TOTAL_OCRN"         property="totalOcrn"/>
+        <result column="TOTAL_PRPT"         property="totalPrpt"/>
+    </resultMap>
+
+
+    <!-- ###################################### 년도별 시도별 정보 조회 ####################################### -->
+    <!--  2021~2023년 총 발생건수 & 피해액  -->
+    <select id="totalProperty" resultMap="python4">
+        SELECT
+        SUM(OCRN_MNB) AS TOTAL_OCRN,
+        SUM(PRPT_DMG_SBTT_AMT) AS TOTAL_PRPT
+        FROM python_4
+    </select>
+
+    <!-- 년도별 2021 -->
+    <select id="property2021" resultMap="python4">
+        SELECT
+        SIDO_NM
+        ,SUM(OCRN_MNB) AS OCRN_MNB
+        ,SUM(PRPT_DMG_SBTT_AMT) AS PRPT_DMG_SBTT_AMT
+        ,(SELECT SUM(OCRN_MNB) FROM python_4 WHERE OCRN_MONTH LIKE  '%2021%')AS TOTAL_OCRN
+        ,(SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE OCRN_MONTH LIKE  '%2021%') AS TOTAL_PRPT
+        FROM python_4
+        WHERE OCRN_MONTH LIKE  '%2021%'
+        GROUP BY SIDO_NM
+        ORDER BY SIDO_NM ASC
+    </select>
+
+    <!-- 년도별 2022 -->
+    <select id="property2022" resultMap="python4">
+        SELECT
+        SIDO_NM
+        ,SUM(OCRN_MNB) AS OCRN_MNB
+        ,SUM(PRPT_DMG_SBTT_AMT) AS PRPT_DMG_SBTT_AMT
+        ,(SELECT SUM(OCRN_MNB) FROM python_4 WHERE OCRN_MONTH LIKE  '%2022%')AS TOTAL_OCRN
+        ,(SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE OCRN_MONTH LIKE  '%2022%') AS TOTAL_PRPT
+        FROM python_4
+        WHERE OCRN_MONTH LIKE  '%2022%'
+        GROUP BY SIDO_NM
+        ORDER BY SIDO_NM ASC
+    </select>
+    <!-- 년도별 2023 -->
+    <select id="property2023" resultMap="python4">
+        SELECT
+        SIDO_NM
+        ,SUM(OCRN_MNB) AS OCRN_MNB
+        ,SUM(PRPT_DMG_SBTT_AMT) AS PRPT_DMG_SBTT_AMT
+        ,(SELECT SUM(OCRN_MNB) FROM python_4 WHERE OCRN_MONTH LIKE  '%2023%')AS TOTAL_OCRN
+        ,(SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE OCRN_MONTH LIKE  '%2023%') AS TOTAL_PRPT
+        FROM python_4
+        WHERE OCRN_MONTH LIKE  '%2023%'
+        GROUP BY SIDO_NM
+        ORDER BY SIDO_NM ASC
+    </select>
+
+
+
+
+<!-- ###################################### 시도별 월별 정보 조회 ####################################### -->
+
+    <!-- 월별 2021년 피해액   -->
+    <select id="monthPro2021" resultMap="python4">
+        SELECT
+            PROPERTY_CODE,
+            SIDO_NM,
+            OCRN_MONTH,
+            SUM(OCRN_MNB) AS OCRN_MNB,
+            SUM(PRPT_DMG_SBTT_AMT) AS PRPT_DMG_SBTT_AMT
+        ,(SELECT SUM(OCRN_MNB) FROM python_4 WHERE OCRN_MONTH LIKE  '%2021%')AS TOTAL_OCRN
+        ,(SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE OCRN_MONTH LIKE  '%2021%') AS TOTAL_PRPT
+        FROM python_4
+        WHERE SIDO_NM=#{sidoNm} AND OCRN_MONTH LIKE '%2021%'
+        GROUP BY OCRN_MONTH
+    </select>
+
+    <!-- 월별 2022년 피해액   -->
+    <select id="monthPro2022" resultMap="python4">
+        SELECT
+        PROPERTY_CODE,
+        SIDO_NM,
+        OCRN_MONTH,
+        SUM(OCRN_MNB) AS OCRN_MNB,
+        SUM(PRPT_DMG_SBTT_AMT) AS PRPT_DMG_SBTT_AMT
+        ,(SELECT SUM(OCRN_MNB) FROM python_4 WHERE OCRN_MONTH LIKE  '%2022%')AS TOTAL_OCRN
+        ,(SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE OCRN_MONTH LIKE  '%2022%') AS TOTAL_PRPT
+        FROM python_4
+        WHERE SIDO_NM=#{sidoNm} AND OCRN_MONTH LIKE '%2022%'
+        GROUP BY OCRN_MONTH
+    </select>
+
+    <!-- 월별 2023년 피해액   -->
+    <select id="monthPro2023" resultMap="python4">
+        SELECT
+        PROPERTY_CODE,
+        SIDO_NM,
+        OCRN_MONTH,
+        SUM(OCRN_MNB) AS OCRN_MNB,
+        SUM(PRPT_DMG_SBTT_AMT) AS PRPT_DMG_SBTT_AMT
+        ,(SELECT SUM(OCRN_MNB) FROM python_4 WHERE OCRN_MONTH LIKE  '%2023%')AS TOTAL_OCRN
+        ,(SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE OCRN_MONTH LIKE  '%2023%') AS TOTAL_PRPT
+        FROM python_4
+        WHERE SIDO_NM=#{sidoNm} AND OCRN_MONTH LIKE '%2023%'
+        GROUP BY OCRN_MONTH
+    </select>
+
+    <!--  시도명 조회  -->
+    <select id="selectSido" resultMap="python4">
+        <![CDATA[
+            SELECT
+            PROPERTY_CODE,
+            SIDO_NM
+            FROM python_4
+            WHERE PROPERTY_CODE >0 AND PROPERTY_CODE <18
+        ]]>
+    </select>
+
 </mapper>
 
 

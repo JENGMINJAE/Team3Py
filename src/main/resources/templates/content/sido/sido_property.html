@@ -10,10 +10,192 @@
 
 <th:block layout:fragment="contentFragment">
     <!-- html 코드 작성 -->
-    <div>
-        <div>
-            <input type="button" class="btn btn-warning" value="강원도" onclick="gokang()">
-        </div>
+
+    <style>
+        th, td, tr {border: 1px solid rgba(122, 122, 122, 0.74); border-collapse: collapse;}
+        .row>*{padding-right: calc(var(--bs-gutter-x)* .0); padding-left: calc(var(--bs-gutter-x)* .0);}
+        .tr-row{--bs-table-bg: rgba(170, 170, 170, 0.466);}
+        .sido_row{--bs-table-bg: rgba(206, 207, 209, 0.192);}
+    </style>
+
+    <div class="container mt-4">
+
+            
+                    <!-- 2021 -->
+                    <th:block th:each=" pro21, index : ${property2021}" id="one-div">           
+                        <div><input type="hidden"  th:value="${pro21.prptDmgSbttAmt}" class="one"></div>            
+                    </th:block>
+                    <!-- 2022 -->
+                    <th:block th:each=" pro22, index : ${property2022}">      
+                        <div><input type="hidden"  th:value="${pro22.prptDmgSbttAmt}" th:id="'two'+ ${index.count}" class="two"></div>       
+                    </th:block>
+                    <!-- 2023 -->
+                    <th:block th:each=" pro23, index : ${property2023}">          
+                        <div><input type="hidden"  th:value="${pro23.prptDmgSbttAmt}" th:id="'three'+ ${index.count}" class="three"></div>            
+                    </th:block>
+                
+                <div class="row mt-4">
+                    <div class="row">
+                        <div class="col" style="text-align: center; text-align: start;">
+                            <h2><strong>[행정구역 - 년도별] 화재 재산피해액</strong></h2>  
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col" style="text-align: center; color: rgb(116, 113, 113); text-align: start;">
+                            <h4><strong>년도별/월별  화재 재산피해액</strong></h4>  
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col">
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>    
+                            <canvas id="line-chart" width="1000" height="300"> </canvas>
+                        </div>   
+                    </div>
+                </div>
+
+                <div class="row mt-4 mb-4" style="width: 1000px;">
+                    <th:block th:each=" sidoName : ${sidoNameList}"> 
+                        <div class="col-1" style="margin:3px 3px 1px 5px; width: fit-content">                            
+                                <input type="button" class="btn btn-warning" th:value="${sidoName.sidoNm}" onclick="gokoung(this)">                   
+                        </div>
+                    </th:block> 
+                </div>
+
+                
+                <div class="row mt-4">
+                    <div class="col-4" style="text-align: start;">
+                        <h3>[행정구역 - 전체] 상세 결과</h3>
+                    </div>
+                    <div class="col-5 fs-30" style="text-align: center; color: rgb(116, 113, 113); text-align: end; margin-top: 15px;">
+                        <strong>총 발생건수:[[${totalProperty[0].totalOcrn}]] / 총 재산피해액:[[${totalProperty[0].totalPrpt}]]</strong>                      
+                    </div>
+                </div>
+
+            <div class="row overflow-x-auto" style="width: 1000px; border: 3px solid rgba(97, 97, 97, 0.795); height: 500px; overflow:auto;">
+                <div class="col ">
+                    <div class="row" style="width: 2000px;">
+                        <div class="col-2" style="width: 300px;">        
+                            <table class="table text-center align-middle">
+                                <colgroup>
+                                    <col width="40%">
+                                    
+                                </colgroup>
+                                
+                                <tr class="tr-row">
+                                    <th>년도</th>
+                                </tr>
+                                <tr class="tr-row">
+                                    <th>시도명</th>    
+                                </tr>        
+                                <tr class="sido_row"  th:each=" sidoN : ${sidoNameList}">
+                                    <th>[[${sidoN.sidoNm}]]</th>
+                                </tr>
+                                <tr class="tr-row" >
+                                    <th>년도별 총계</th>
+                                </tr>                            
+                            </table>
+                        </div>
+                        <div class="col-3" style="width: 500px;" >
+                            <table class="table text-center align-middle">
+                                <colgroup>
+                            
+                                    <col width="40%">
+                                    <col width="40%">
+                                </colgroup>                                    
+                                <tr class="tr-row">                                        
+                                    <th colspan="2">2021</th>
+                                </tr>
+                                <tr class="sido_row">
+                                                            
+                                    <th>발생건수</th>
+                                    <th>화재 피해소계금액</th>
+                                </tr>
+                                <tr th:each=" sido2021 : ${property2021}">
+                                    <td id='my_td' style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                        [[${sido2021.ocrnMnb}]]
+                                    </td>
+                                    <td id='money_td'  style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                        [[${sido2021.prptDmgSbttAmt}]]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id='my_td' style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                        [[${property2021[0].totalOcrn}]]
+                                    </td>
+                                    <td id='money_td'  style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                        [[${property2021[0].totalPrpt}]]
+                                    </td>
+                                </tr>
+                            </table>        
+                        </div> 
+                        <div class="col-3" style="width: 500px;" >
+                                <table class="table text-center align-middle">
+                                    <colgroup>                                        
+                                        <col width="40%">
+                                        <col width="40%">
+                                    </colgroup>                                    
+                                    <tr class="tr-row">                                        
+                                        <th colspan="2">2022</th>
+                                    </tr>
+                                    <tr class="sido_row">                                       
+                                        <th>발생건수</th>
+                                        <th>화재 피해소계금액</th>
+                                    </tr>
+                                    <tr th:each=" sido2022 : ${property2022}">
+                                        <td id='my_td' style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                            [[${sido2022.ocrnMnb}]]
+                                        </td>
+                                        <td id='money_td'  style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                            [[${sido2022.prptDmgSbttAmt}]]
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td id='my_td' style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                            [[${property2022[0].totalOcrn}]]
+                                        </td>
+                                        <td id='money_td'  style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                            [[${property2022[0].totalPrpt}]]
+                                        </td>
+                                    </tr>
+                                </table>        
+                        </div> 
+                        <div class="col-3" style="width: 500px;" >
+                            <table class="table text-center align-middle">
+                                <colgroup>
+                                    <col width="40%">
+                                    <col width="40%">
+                                </colgroup>                                
+                                <tr class="tr-row">                                    
+                                    <th colspan="2">2023</th>
+                                </tr>
+                                <tr class="sido_row">                                    
+                                    <th>발생건수</th>
+                                    <th>화재 피해소계금액</th>                                    
+                                </tr>           
+                                <tr th:each=" sido2023 : ${property2023}">
+                                    <td id='my_td' style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                        [[${sido2023.ocrnMnb}]]
+                                    </td>
+                                    <td id='money_td'  style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                        [[${sido2023.prptDmgSbttAmt}]]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id='my_td' style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                        [[${property2023[0].totalOcrn}]]
+                                    </td>
+                                    <td id='money_td'  style="cursor: pointer;" onmouseover="convertToKoreanNumber(this)">
+                                        [[${property2023[0].totalPrpt}]]
+                                    </td>
+                                </tr>                    
+                            </table>        
+                        </div> 
+                    </div>    
+                </div>    
+            </div>
+
+
+            
     </div>
 </th:block>
 

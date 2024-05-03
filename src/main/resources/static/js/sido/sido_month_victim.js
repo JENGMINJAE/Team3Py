@@ -39,13 +39,13 @@ new Chart(document.getElementById("line-chart4"),
             { 
                 data: monthVic2021List, 
                 label: "2021년도", 
-                borderColor: "#3e95cd", 
+                borderColor: "#3cba9f", 
                 fill: false 
             }, 
             { 
                 data: monthVic2022List, 
                 label: "2022년도", 
-                borderColor: "#8e5ea2", 
+                borderColor: "#e8c3b9", 
                 fill: false 
             }, 
             { 
@@ -57,16 +57,8 @@ new Chart(document.getElementById("line-chart4"),
         ] 
     }, 
     options: { 
-        title: { display: false, text: 'World population per region (in millions)' }, 
-        responsive: false,
-        scales : {yAxes:[{
+        title: { display: false, text: 'World population per region (in millions)' } 
         
-            ticks: {
-                display :true,  stepSize: 200,  max:800,
-                min: 0 }
-        }]
-        
-        }
 
     } 
 

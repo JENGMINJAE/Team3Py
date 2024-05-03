@@ -67,6 +67,22 @@ public class SidoServiceImpl implements SidoService {
     public List<Python3VO> totalVictim() {
         return sqlSession.selectList("sidoMapper.totalVictim");
     }
+    // ///////////////////  년도별 총 인명 재산 발생 건 데이터 ///////////////////////////
+
+    @Override
+    public List<Python4VO> selectYear2021() {
+        return sqlSession.selectList("sidoMapper.selectYear2021");
+    }
+
+    @Override
+    public List<Python4VO> selectYear2022() {
+        return sqlSession.selectList("sidoMapper.selectYear2022");
+    }
+
+    @Override
+    public List<Python4VO> selectYear2023() {
+        return sqlSession.selectList("sidoMapper.selectYear2023");
+    }
 
 
 }

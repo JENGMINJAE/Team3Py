@@ -13,7 +13,7 @@
 
     <style>
         th, td, tr {border: 1px solid rgba(122, 122, 122, 0.74); border-collapse: collapse;}
-        .row>*{padding-right: calc(var(--bs-gutter-x)* .0); padding-left: calc(var(--bs-gutter-x)* .0);}
+        .my-table-div .row>*{ padding-left: calc(var(--bs-gutter-x)* .0) ;padding-right: calc(var(--bs-gutter-x)* .0);}
         .tr-row{--bs-table-bg: rgba(170, 170, 170, 0.466);}
         .sido_row{--bs-table-bg: rgba(206, 207, 209, 0.192);}
         .scrollbar { 
@@ -37,7 +37,7 @@
             }
     </style>
 
-    <div class="mt-4" style="margin-left: 200px;">
+    <div style="margin-left: 200px; margin-top: 80px; height: 1500px;">
 
             <!-- ///////////////////////////////////////년도별 데이터 자바스크립트로 넘기기 //////////////////////////////////////////////////// -->
                     <!-- 2021 -->
@@ -57,42 +57,46 @@
                     </th:block>
     
                     
-
-                <div class="row mt-4" style="width: 2100px;">
+                <div class="row mb-2"  style="width: 1500px; text-align: center;">
+                    <div class="col">
+                        <h2>[[ &nbsp; <strong>행정구역 - 전체</strong> &nbsp;]]</h2>  
+                    </div>
+                </div>   
+                <div class="row mt-4" style="width: 1500px;">
                     <!-- ////////////재산피해 그래프 ////////////-->
-                    <div class="col-6">
-                        <div class="row mb-3">
-                            <div class="col" style="text-align: start;">
-                                <h2><strong>[행정구역 - 년도별] 화재 재산피해액</strong></h2>  
+                    <div class="col-6" style="text-align: center;">
+                        <div class="row mb-3" >
+                            <div class="col" >
+                                <h4><strong>[년도별] 화재 재산피해액</strong></h4>  
                             </div>
                         </div>
                         
                         <div class="row mb-3" >
-                            <div class="col">
+                            <div class="col" style="margin-left: 30px;">
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>    
-                                <canvas id="line-chart" width="1000" height="300"> </canvas>
+                                <canvas id="line-chart" width="650" height="250"> </canvas>
                             </div>   
                         </div>
                     </div>
                     <!-- ////////////인명피해 그래프 ////////////-->
-                    <div class="col-6">
+                    <div class="col-6" style="text-align: center;">
                         <div class="row mb-3" >
-                            <div class="col" style="text-align: start;">
-                                <h2><strong>[행정구역 - 년도별] 화재 인명피해수</strong></h2>  
+                            <div class="col">
+                                <h4><strong>[년도별] 화재 인명피해수</strong></h4>  
                             </div>
                         </div>
                         
                         <div class="row mb-3" >
                             <div class="col">
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>    
-                                <canvas id="line-chart2" width="1000" height="300"> </canvas>
+                                <canvas id="line-chart2" width="650" height="250"> </canvas>
                             </div>   
                         </div>
                     </div>    
                 </div>
 
                 <!-- ////////////시도별 버튼 ////////////-->
-                <div class="row mt-4 mb-4" style="width: 2000px">
+                <div class="row mt-4 mb-4" style="width: 1500px;">
                     <th:block th:each=" sidoName : ${sidoNameList}"> 
                         <div class="col-1" style=" width: fit-content; text-align: start; margin: 2px;" >                            
                                 <input type="button" class="btn btn-warning" th:value="${sidoName.sidoNm}" onclick="gokoung(this)" style="width: 10rem;">                   
@@ -101,20 +105,19 @@
                 </div>
 
                 
-                <div class="row mt-4" style="width: 2100px;">
+                <div class="row mt-4" style="width: 1500px;">
                     <div class="col-6" style="text-align: start;">
                         <div class="row">
                             <div class="col-6">
-                                <h3>[행정구역 - 전체] 상세 결과</h3>
+                                <h4> [행정구역 - 전체]상세 결과</h4>
                             </div>
                         </div>                        
                     </div>
                     <!-- //////////// 재산 & 인명 피해 총 통계 ////////////-->
                     <div class="col-6" style="text-align: start;">
-                        <div class="row">
-                            <div class="col-4">                                
-                            </div>
-                            <div class="col-8 fs-30" style="cursor: pointer; text-align:start; color: rgb(116, 113, 113); margin-top: 15px;">
+                        <div class="row">                       
+                            <div class="fs-30" style="cursor: pointer; text-align:start; color: rgb(116, 113, 113); margin-top: 15px;">
+                                [2021~2023년도]
                                 <strong>총 발생건수:<span onmouseover="convertToKoreanNumber(this)">[[${totalVictim[0].totalOcrn}]]</span> 
                                     /  총 재산피해액:<span onmouseover="convertToKoreanNumber(this)">[[${totalProperty[0].totalPrpt}]]</span>
                                     /  총 화재 인명피해수:<span onmouseover="convertToKoreanNumber(this)">[[${totalVictim[0].totalPrpt}]]</span>
@@ -124,12 +127,12 @@
                     </div>
                 </div>
 
-            <div class="row" style="width: 2000px;">
+            <div class="row mt-4 mb-4 my-table-div" style="width: 1500px;">
                 <div class="col">
                      <!-- ////////////피해재산액 & 피해인명수 통계표 ////////////-->
                     <div class="row scrollbar" style="width: 100%; border: 3px solid rgba(97, 97, 97, 0.795); height: 500px; overflow-y:auto; overflow-x:hidden;">
                         <div class="col">
-                            <div class="row" style="width: 2000px;">
+                            <div class="row" style="width: 1500px;">
                                 <div class="col-2" style="width: 200px;">        
                                     <table class="table text-center align-middle">
                                         <colgroup>
@@ -151,11 +154,11 @@
                                         </tr>                            
                                     </table>
                                 </div>
-                                <div class="col-3" style="width: 600px;" >
+                                <div class="col-3" style="width: 430px;" >
                                     <table class="table text-center align-middle">
                                         <colgroup>                                    
-                                            <col width="30%">
-                                            <col width="35%">
+                                            <col width="25%">
+                                            <col width="40%">
                                             <col width="35%">
                                         </colgroup>                                    
                                         <tr class="tr-row">                                        
@@ -194,11 +197,11 @@
                                         </tr>
                                     </table>        
                                 </div> 
-                                <div class="col-3" style="width: 600px;" >
+                                <div class="col-3" style="width: 430px;" >
                                         <table class="table text-center align-middle">
                                             <colgroup>                                    
-                                                <col width="30%">
-                                                <col width="35%">
+                                                <col width="25%">
+                                                <col width="40%">
                                                 <col width="35%">
                                             </colgroup>                                    
                                             <tr class="tr-row">                                        
@@ -233,11 +236,11 @@
                                             </tr>
                                         </table>        
                                 </div> 
-                                <div class="col-3" style="width: 600px;" >
+                                <div class="col-3" style="width: 430px;" >
                                     <table class="table text-center align-middle">
                                         <colgroup>                                    
-                                            <col width="30%">
-                                            <col width="35%">
+                                            <col width="25%">
+                                            <col width="40%">
                                             <col width="35%">
                                         </colgroup>                                    
                                         <tr class="tr-row">                                        

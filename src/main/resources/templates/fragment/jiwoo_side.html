@@ -62,56 +62,7 @@
     
     
     
-    <script>
-    // //////////////////////화재 발생건수 ///////////////////////////////////////////    
-        let fireCount=document.querySelector('.fireCount');
-        let count=0;
-        let max=12345;
 
-        let counting=setInterval(function(){
-            if(count>=max){
-                count=max;
-                clearInterval(counting);
-            }
-            else{
-                count+= 1234;
-            }
-            fireCount.innerHTML=new Intl.NumberFormat().format(count);
-        }, 90);
-
-// ///////////////////인명피해인원수///////////////////
-        let victimCount=document.querySelector('.victimCount');
-        let count1=0;
-        let max1=22345;
-
-        let counting1=setInterval(function(){
-            if(count1>=max1){
-                count1=max1;
-                clearInterval(counting1);
-            }
-            else{
-                count1+= 2234;
-            }
-            victimCount.innerHTML=new Intl.NumberFormat().format(count1);
-        }, 90);
-
-
-// ///////////////////재산피해액///////////////////
-        let propertyCount=document.querySelector('.propertyCount');
-        let count2=0;
-        let max2=32345;
-
-        let counting2=setInterval(function(){
-            if(count2>=max2){
-                count2=max2;
-                clearInterval(counting2);
-            }
-            else{
-                count2+= 3234;
-            }
-            propertyCount.innerHTML=new Intl.NumberFormat().format(count2);
-        }, 90);
-    </script>
     
     </th:block>
 

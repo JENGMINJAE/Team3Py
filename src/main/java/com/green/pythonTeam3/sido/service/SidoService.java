@@ -26,7 +26,12 @@ public interface SidoService {
 
 
 // ############  시도별 인명 피해 데이터 ###########
-
 //   2021~2023년 총 발생건수 & 피해액
     List<Python3VO> totalVictim();
+
+    // ############  년도별 피해 데이터 ###########
+    List<Python4VO> selectYear2021();
+    List<Python4VO> selectYear2022();
+    List<Python4VO> selectYear2023();
+
 }

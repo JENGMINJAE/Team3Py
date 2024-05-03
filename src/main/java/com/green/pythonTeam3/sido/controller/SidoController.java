@@ -1,14 +1,15 @@
 package com.green.pythonTeam3.sido.controller;
 
+import com.green.pythonTeam3.graph.vo.GraphVO;
+import com.green.pythonTeam3.ranking.vo.FirePlaceVO;
+import com.green.pythonTeam3.sido.service.SidoService;
 import com.green.pythonTeam3.sido.service.SidoServiceImpl;
 import com.green.pythonTeam3.sido.vo.Python3VO;
 import com.green.pythonTeam3.sido.vo.Python4VO;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -71,6 +72,17 @@ public class SidoController {
 
         return "/content/sido/sido_month_property";
     }
+
+
+        //    메인 2023
+        @ResponseBody
+        @PostMapping("/sidoFetch2023")
+        public List<Python4VO> sidoFetch2023(@RequestParam(name = "selectYear")int selectYear){
+            List<Python4VO> selectYear2023 = sidoService.selectYear2023();
+            System.out.println("555555555555" + selectYear2023);
+            return selectYear2023;
+        }
+
 
 
 }

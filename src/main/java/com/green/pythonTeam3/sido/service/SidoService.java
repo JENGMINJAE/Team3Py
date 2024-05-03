@@ -30,8 +30,6 @@ public interface SidoService {
     List<Python3VO> totalVictim();
 
     // ############  년도별 피해 데이터 ###########
-    List<Python4VO> selectYear2021();
-    List<Python4VO> selectYear2022();
-    List<Python4VO> selectYear2023();
+    Python4VO selectYears(int selectYear);
 
 }

@@ -77,8 +77,8 @@ public class SidoController {
         //    메인 2023
         @ResponseBody
         @PostMapping("/sidoFetch2023")
-        public List<Python4VO> sidoFetch2023(@RequestParam(name = "selectYear")int selectYear){
-            List<Python4VO> selectYear2023 = sidoService.selectYear2023();
+        public Python4VO sidoFetch2023(@RequestParam(name = "selectYear")int selectYear){
+            Python4VO selectYear2023 = sidoService.selectYears(selectYear);
             System.out.println("555555555555" + selectYear2023);
             return selectYear2023;
         }

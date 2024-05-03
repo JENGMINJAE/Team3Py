@@ -19,6 +19,7 @@ public class Python4VO {
     private int totalOcrn;
     private long totalPrpt;
     private long totalLife;
+    private int selectYear;
 
 
 }

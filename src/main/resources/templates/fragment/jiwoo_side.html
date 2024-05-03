@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
     <th:block th:fragment="jiwooSideFragment">
-        <style>
-            .jiwoo{
-                background-image: url(/img/mainFire.jpg) ;
-                background-size: 800px 240px;
-                
-            }
-        </style>
+        <th:block th:if="${year} == 2023">
+            <style>
+                .jiwoo{
+                    background-image: url(/img/mainFire.jpg) ;
+                    background-size: 800px 240px; 
+                }
+            </style>
+        </th:block>
+            
+        <th:block th:if="${year} == 2022">
+                <style>
+                    .jiwoo{
+                        background-image: url(/img/mainFire2022.jpg) ;
+                        background-size: 800px 240px; 
+                    }
+                </style>
+        </th:block>
+
+        <th:block th:if="${year} == 2021">
+                <style>
+                    .jiwoo{
+                        background-image: url(/img/mainFire2023.jpg) ;
+                        background-size: 800px 240px; 
+                    }
+                </style>
+        </th:block>
 
 
 
 
-
+        <input type="hidden" id="yearJiwoo" th:value="${year}">
         <div class="row mb-1" style="background-color: rgba(48, 45, 45, 0.664); height:70px; width: 300px;  top: 10px; left: 400px; position: relative; ">
             <div class="col">
                 <div class="row">
                     <div class="col" style="color: white; font-size: 20px;">
-                        2023 화재 발생건수
+                        
+                        <th:block th:if="${year} == 2023">
+                            2023
+                        </th:block>
+                        <th:block th:if="${year} == 2022">
+                            2022
+                        </th:block>
+                        <th:block th:if="${year} == 2021">
+                            2021
+                        </th:block>                        
+                        화재 발생건수
                     </div>
                 </div>
                 <div class="row">
@@ -32,7 +61,16 @@
             <div class="col">
                 <div class="row">
                     <div class="col" style="color: white; font-size: 20px;">
-                        2023 화재 인명피해인원수
+                        <th:block th:if="${year} == 2023">
+                            2023
+                        </th:block>
+                        <th:block th:if="${year} == 2022">
+                            2022
+                        </th:block>
+                        <th:block th:if="${year} == 2021">
+                            2021
+                        </th:block>    
+                        화재 인명피해인원수
                     </div>
                 </div>
                 <div class="row">
@@ -47,7 +85,16 @@
             <div class="col">
                 <div class="row">
                     <div class="col" style="color: white; font-size: 20px;">
-                        2023 화재 재산피해액
+                        <th:block th:if="${year} == 2023">
+                            2023
+                        </th:block>
+                        <th:block th:if="${year} == 2022">
+                            2022
+                        </th:block>
+                        <th:block th:if="${year} == 2021">
+                            2021
+                        </th:block>    
+                        화재 재산피해액
                     </div>
                 </div>
                 <div class="row">

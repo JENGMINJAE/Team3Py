@@ -171,46 +171,20 @@
 
     <!-- ###################################### 총 년도별 정보 조회 ####################################### -->
 
-    <!--  2021년 총 재산, 인명, 발생 -->
-    <select id="selectYear2021" resultMap="python4">
-        SELECT
-            p4.OCRN_MONTH
-            , (SELECT SUM(OCRN_MNB) FROM python_4 WHERE OCRN_MONTH LIKE  '%2021%')AS TOTAL_OCRN
-            , (SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE OCRN_MONTH LIKE  '%2021%') AS TOTAL_PRPT
-            , (SELECT SUM(LIFE_DMG_PERCNT) FROM python_3 WHERE VCTM_MONTH LIKE  '%2021%') AS TOTAL_LIFE
-        FROM python_4 p4
-        INNER JOIN python_3 p3
-        ON p4.SIDO_NM=p3.VCTM_SIDO
-        WHERE p4.OCRN_MONTH LIKE '%2021%'
-        GROUP BY p4.OCRN_MONTH LIKE '%2021%'
-    </select>
 
-    <!--  2022년 총 재산, 인명, 발생 -->
-    <select id="selectYear2022" resultMap="python4">
+
+    <!--  2021~2023년 총 재산, 인명, 발생 -->
+    <select id="selectYears" resultMap="python4">
         SELECT
         p4.OCRN_MONTH
-        , (SELECT SUM(OCRN_MNB) FROM python_4 WHERE OCRN_MONTH LIKE  '%2022%')AS TOTAL_OCRN
-        , (SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE OCRN_MONTH LIKE  '%2022%') AS TOTAL_PRPT
-        , (SELECT SUM(LIFE_DMG_PERCNT) FROM python_3 WHERE VCTM_MONTH LIKE  '%2022%') AS TOTAL_LIFE
+        , (SELECT SUM(OCRN_MNB) FROM python_4 WHERE substring(OCRN_MONTH,1,4) = substring(p4.OCRN_MONTH,1,4))AS TOTAL_OCRN
+        , (SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE substring(OCRN_MONTH,1,4) = substring(p4.OCRN_MONTH,1,4)) AS TOTAL_PRPT
+        , (SELECT SUM(LIFE_DMG_PERCNT) FROM python_3 WHERE SUBSTRING(VCTM_MONTH,1,4) = substring(p4.OCRN_MONTH,1,4)) AS TOTAL_LIFE
         FROM python_4 p4
         INNER JOIN python_3 p3
         ON p4.SIDO_NM=p3.VCTM_SIDO
-        WHERE p4.OCRN_MONTH LIKE '%2022%'
-        GROUP BY p4.OCRN_MONTH LIKE '%2022%'
-    </select>
-
-    <!--  2023년 총 재산, 인명, 발생 -->
-    <select id="selectYear2023" resultMap="python4">
-        SELECT
-        p4.OCRN_MONTH
-        , (SELECT SUM(OCRN_MNB) FROM python_4 WHERE OCRN_MONTH LIKE '%2023%')AS TOTAL_OCRN
-        , (SELECT SUM(PRPT_DMG_SBTT_AMT) FROM python_4 WHERE OCRN_MONTH LIKE  '%2023%') AS TOTAL_PRPT
-        , (SELECT SUM(LIFE_DMG_PERCNT) FROM python_3 WHERE VCTM_MONTH LIKE  '%2023%') AS TOTAL_LIFE
-        FROM python_4 p4
-        INNER JOIN python_3 p3
-        ON p4.SIDO_NM=p3.VCTM_SIDO
-        WHERE p4.OCRN_MONTH LIKE '%2023%'
-        GROUP BY p4.OCRN_MONTH LIKE '%2023%'
+        WHERE substring(p4.OCRN_MONTH,1,4) = #{selectYear}
+        GROUP BY substring(p4.OCRN_MONTH,1,4) = #{selectYear}
     </select>
 
 

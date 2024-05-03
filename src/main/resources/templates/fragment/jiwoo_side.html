@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
     <th:block th:fragment="jiwooSideFragment">
-        <style>
-            .jiwoo{
-                background-image: url(/img/mainFire.jpg) ;
-                background-size: 800px 240px;
-                
-            }
-        </style>
+        <th:block th:if="${year} == 2023">
+            <style>
+                .jiwoo{
+                    background-image: url(/img/mainFire.jpg) ;
+                    background-size: 800px 240px; 
+                }
+            </style>
+        </th:block>
+            
+        <th:block th:if="${year} == 2022">
+                <style>
+                    .jiwoo{
+                        background-image: url(/img/mainFire2022.jpg) ;
+                        background-size: 800px 240px; 
+                    }
+                </style>
+        </th:block>
+
+        <th:block th:if="${year} == 2021">
+                <style>
+                    .jiwoo{
+                        background-image: url(/img/mainFire.jpg) ;
+                        background-size: 800px 240px; 
+                    }
+                </style>
+        </th:block>
 
 
 
 
-
+        <input type="hidden" id="yearJiwoo" th:value="${year}">
         <div class="row mb-1" style="background-color: rgba(48, 45, 45, 0.664); height:70px; width: 300px;  top: 10px; left: 400px; position: relative; ">
             <div class="col">
                 <div class="row">

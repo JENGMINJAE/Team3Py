@@ -14,7 +14,7 @@ public class GraphServiceImpl implements GraphService{
     private SqlSessionTemplate sqlSession;
 
     @Override
-    public List<FirePlaceVO> totalCnt() {
-        return sqlSession.selectList("graphMapper.totalCnt");
+    public List<FirePlaceVO> totalCnt(int selectYear) {
+        return sqlSession.selectList("graphMapper.totalCnt",selectYear);
     }
 }

@@ -34,7 +34,6 @@ public class RankingController {
         //3. 화재장소
         List<FirePlaceVO>mainTopList3 = rankingService.mainPlaceTop3(selectYear);
         map.put("mainTopList3",mainTopList3);
-        
         return map;
     };
 

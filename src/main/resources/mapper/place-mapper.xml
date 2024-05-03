@@ -32,7 +32,6 @@
     <select id="mainPlaceTop1" resultMap="firstFirePlace">
         SELECT PLACE_BIG_TYPE
         , COUNT(PLACE_BIG_TYPE) AS count
-        , DATE_FORMAT(HAPPEN_DATE,'%Y') AS HAPPEN_DATE
         FROM python_10
         WHERE DATE_FORMAT(HAPPEN_DATE,'%Y') = '2023'
         GROUP BY PLACE_BIG_TYPE
@@ -44,7 +43,6 @@
     <select id="mainPlaceTop2" resultMap="firstFirePlace">
         SELECT PLACE_MIDEUM_TYPE
         , COUNT(PLACE_MIDEUM_TYPE) AS count
-        , DATE_FORMAT(HAPPEN_DATE,'%Y') AS HAPPEN_DATE
         FROM python_10
         WHERE DATE_FORMAT(HAPPEN_DATE,'%Y') = '2023'
         GROUP BY PLACE_MIDEUM_TYPE
@@ -56,13 +54,25 @@
     <select id="mainPlaceTop3" resultMap="firePlace">
         SELECT FIRE_LOCATION
         , COUNT(FIRE_LOCATION) AS count
-        , DATE_FORMAT(DATE_OF_INCIDENT,'%Y') AS DATE_OF_INCIDENT
         FROM python_7
         WHERE DATE_FORMAT(DATE_OF_INCIDENT,'%Y') = '2023'
         GROUP BY FIRE_LOCATION
         ORDER BY COUNT(FIRE_LOCATION) DESC
         LIMIT 3;
     </select>
+
+    <!-- 메인화면 top3 조회 -->
+        <!-- 1. 발화장소 - 대분류명 -->
+    <select id="mainFactorTop1" resultMap="">
+        SELECT FIRE_FACTOR_BIG
+        , COUNT(FIRE_FACTOR_BIG) AS COUNT
+        FROM python_8
+        WHERE DATE_FORMAT(DATE_OF_INCIDENT,'%Y') = '2023'
+        GROUP BY FIRE_FACTOR_BIG
+        ORDER BY COUNT(FIRE_FACTOR_BIG) DESC
+        LIMIT 3;
+    </select>
+
 
 
 

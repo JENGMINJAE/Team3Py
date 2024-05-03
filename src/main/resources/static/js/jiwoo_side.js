@@ -1,7 +1,5 @@
 const yearJiwoo = document.querySelector("#yearJiwoo").value;
 
-alert(yearJiwoo);
-
 fetch('/sido/sidoFetch2023', { //요청경로
     method: 'POST',
     cache: 'no-cache',

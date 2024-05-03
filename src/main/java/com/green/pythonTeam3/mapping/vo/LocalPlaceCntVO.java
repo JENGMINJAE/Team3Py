@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-// 지역별화재장소별화재발생현황
+// 시도단위
 @Getter
 @Setter
 @ToString

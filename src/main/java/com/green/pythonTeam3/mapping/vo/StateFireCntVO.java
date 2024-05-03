@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-// 시도단위화재발생현황 목록조회
+// 지역별화재장소별화재발생현황
 @Setter
 @Getter
 @ToString
@@ -18,4 +18,5 @@ public class StateFireCntVO {
     private int numberOfCasualties; // 인명피해인원수
     private String fireLocation; // 화재장소구분명
     private String stateName; // 시도명
+    private int selectYear;
 }

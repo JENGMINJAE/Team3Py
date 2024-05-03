@@ -7,6 +7,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -19,10 +20,10 @@ public class GraphController {
 
     @ResponseBody
     @PostMapping("/graphFetch")
-    public GraphVO graphFetch(){
+    public GraphVO graphFetch(@RequestParam(name = "selectYear")int selectYear){
         GraphVO graphVO = new GraphVO();
         int[] arr = new int[12];
-        List<FirePlaceVO> a = graphService.totalCnt();
+        List<FirePlaceVO> a = graphService.totalCnt(selectYear);
         for(int i = 0 ; i < a.size() ; i++){
             arr[i] = a.get(i).getCount();
         }

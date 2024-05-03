@@ -8,6 +8,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,7 +19,9 @@ public class IndexController {
     private GraphServiceImpl graphService;
 
     @RequestMapping("/")
-    public String mainPage(){
+    public String mainPage(@RequestParam(name = "selectYear",required = false,defaultValue = "2023")int selectYear
+                            ,Model model){
+        model.addAttribute("year",selectYear);
         return "main/main";
     }
 }

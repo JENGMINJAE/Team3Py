@@ -17,6 +17,7 @@
         SELECT
         COUNT(*) as count
         FROM python_7
+        WHERE substring(DATE_OF_INCIDENT,1,4) = #{selectYear}
         GROUP BY substring(DATE_OF_INCIDENT,6,2)
         ORDER BY substring(DATE_OF_INCIDENT,6,2) ASC
     </select>

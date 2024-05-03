@@ -1,3 +1,4 @@
+const year = document.querySelector("#year").value;
 fetch('/graph/graphFetch', { //요청경로
     method: 'POST',
     cache: 'no-cache',
@@ -7,6 +8,7 @@ fetch('/graph/graphFetch', { //요청경로
     //컨트롤러로 전달할 데이터
     body: new URLSearchParams({
        // 데이터명 : 데이터값
+        selectYear : year
     })
 })
 .then((response) => {

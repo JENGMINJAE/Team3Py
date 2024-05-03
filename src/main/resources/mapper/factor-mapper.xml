@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 발화 요인 & 최초 착화물 -->
+<mapper namespace="factorMapper">
+    <!-- 8. 발화요인 -->
+    <resultMap id="fireFactor" type="com.green.pythonTeam3.ranking.vo.FireFactorVO">
+        <result column="PROPERTY_DAMAGE"    property="propertyDamage"/>
+        <result column="FIRE_FACTOR_BIG"    property="fireFactorBig"/>
+        <result column="OCCURRENCES"        property="occurrences"/>
+        <result column="INJURED_PEOPLE"     property="injuredPeople"/>
+        <result column="DATE_OF_INCIDENT"   property="dateOfIncident"/>
+        <result column="VICTIM_PERCENT"     property="victimPercent"/>
+        <result column="FIRE_FACTOR_SMALL"  property="fireFactorSmall"/>
+        <association property="fireChelateVO" resultMap="firstChelate" />
+    </resultMap>
+
+    <!-- 11. 최초 착화물별 -->
+    <resultMap id="firstChelate" type="com.green.pythonTeam3.total.vo.FirstChelateVO">
+        <result column="FIRSTBURN_BIG_TYPE"     property="ChelateBigType"/>
+        <result column="FIRSTBURN_SMALL_TYPE"   property="ChelateSmallType"/>
+        <result column="HAPPEN_DATE"            property="dateOfIncident"/>
+        <result column="HAPPEN_CNT"             property="occurrences"/>
+        <result column="HULT_PEOPLE"            property="injuredPeople"/>
+        <result column="MONEY_DAMAGE"           property="propertyDamage"/>
+    </resultMap>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

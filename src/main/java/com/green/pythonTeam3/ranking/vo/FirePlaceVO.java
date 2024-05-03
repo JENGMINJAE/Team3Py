@@ -1,5 +1,6 @@
 package com.green.pythonTeam3.ranking.vo;
 
+import com.green.pythonTeam3.total.vo.FireStartPlaceVO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -18,4 +19,5 @@ public class FirePlaceVO {
     private String fireLocation; // 화재장소구분명
     // 토탈
     private int count;
+    private FireStartPlaceVO fireStartPlaceVO; //
 }

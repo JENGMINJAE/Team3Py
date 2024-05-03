@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 화재장소 & 발화장소 -->
+
+<mapper namespace="placeMapper">
+    <!-- 7. 화재장소 -->
+    <resultMap id="firePlace" type="com.green.pythonTeam3.ranking.vo.FirePlaceVO">
+        <result column="PROPERTY_DAMAGE"            property="propertyDamage"/>
+        <result column="OCCURRENCES"                property="occurrences"/>
+        <result column="INJURED_PEOPLE"             property="injuredPeople"/>
+        <result column="DATE_OF_INCIDENT"           property="dateOfIncident"/>
+        <result column="VICTIM_PERCENT"             property="victimPercent"/>
+        <result column="NUMBER_OF_CASUALTIES"       property="numberOfCasualties"/>
+        <result column="FIRE_LOCATION"              property="fireLocation"/>
+    </resultMap>
+
+    <!-- 10. 발화장소 -->
+    <resultMap id="firstFirePlace" type="com.green.pythonTeam3.total.vo.FireStartPlaceVO">
+        <result column="PLACE_BIG_TYPE"            property="placeBigType"/>
+        <result column="PLACE_MIDEUM_TYPE"         property="placeMediumType"/>
+        <result column="HAPPEN_DATE"               property="happenDate"/>
+        <result column="HULT_PEOPLE"               property="hurtPeople"/>
+        <result column="HAPPEN_CNT"                property="happenCnt"/>
+        <result column="MONEY_DAMAGE"              property="moneyDamage"/>
+        <result column="COUNT"                     property="count"/>
+        <association property="firePlaceVO"        resultMap="firePlace"/>
+    </resultMap>
+
+    <!-- 메인화면 top3 조회 -->
+        <!-- 1. 발화장소 - 대분류명 -->
+    <select id="mainPlaceTop1" resultMap="firstFirePlace">
+        SELECT PLACE_BIG_TYPE
+        , COUNT(PLACE_BIG_TYPE) AS count
+        , DATE_FORMAT(HAPPEN_DATE,'%Y') AS HAPPEN_DATE
+        FROM python_10
+        WHERE DATE_FORMAT(HAPPEN_DATE,'%Y') = '2023'
+        GROUP BY PLACE_BIG_TYPE
+        ORDER BY COUNT(PLACE_BIG_TYPE) DESC
+        LIMIT 3;
+    </select>
+
+        <!-- 2. 발화장소 - 중분류명 -->
+    <select id="mainPlaceTop2" resultMap="firstFirePlace">
+        SELECT PLACE_MIDEUM_TYPE
+        , COUNT(PLACE_MIDEUM_TYPE) AS count
+        , DATE_FORMAT(HAPPEN_DATE,'%Y') AS HAPPEN_DATE
+        FROM python_10
+        WHERE DATE_FORMAT(HAPPEN_DATE,'%Y') = '2023'
+        GROUP BY PLACE_MIDEUM_TYPE
+        ORDER BY COUNT(PLACE_MIDEUM_TYPE) DESC
+        LIMIT 3;
+    </select>
+
+        <!-- 3. 화재장소 -->
+    <select id="mainPlaceTop3" resultMap="firePlace">
+        SELECT FIRE_LOCATION
+        , COUNT(FIRE_LOCATION) AS count
+        , DATE_FORMAT(DATE_OF_INCIDENT,'%Y') AS DATE_OF_INCIDENT
+        FROM python_7
+        WHERE DATE_FORMAT(DATE_OF_INCIDENT,'%Y') = '2023'
+        GROUP BY FIRE_LOCATION
+        ORDER BY COUNT(FIRE_LOCATION) DESC
+        LIMIT 3;
+    </select>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

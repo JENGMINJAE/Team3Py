@@ -1,5 +1,6 @@
 package com.green.pythonTeam3.ranking.vo;
 
+import com.green.pythonTeam3.total.vo.FirstChelateVO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,4 +17,5 @@ public class FireFactorVO {
     private String dateOfIncident; // 발생일자
     private int victimPercent; // 사고자인원수
     private String fireFactorSmall; // 발화요인소분류명
+    private FirstChelateVO firstChelateVO; //최초착화물별화재현황
 }

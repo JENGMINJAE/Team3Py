@@ -37,13 +37,12 @@ async function main() {
         
     const pathGen = d3.geoPath().projection(d3.geoMercator().fitSize([renderData.width, renderData.height], geoJson));
 
-    
     svg.selectAll('.province')
         .data(geoJson.features)
         .enter().append('path')
         .attr('d', pathGen)
-        .attr('fill', '#cacaca')
-        .attr('stroke', '#000000')
+        .attr('fill', '#3f3f3f')
+        .attr('stroke', '#e4e4e4')
         .on('mouseenter', function(event, d) {
             d3.select(this).attr('fill', '#ff8800')
             tooltip
@@ -53,10 +52,39 @@ async function main() {
                 .style("left", (event.pageX + 10) + "px")
                 .style("top", (event.pageY + 10) + "px");
                 stateName = event.properties.name;
+                const selectYear = document.querySelector("#year").value;
 
+                fetch('/map/mapFirst', { //요청경로
+                    method: 'POST',
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'application/json; charset=UTF-8'
+                    },
+                    //컨트롤러로 전달할 데이터
+                    body: JSON.stringify({
+                       // 데이터명 : 데이터값
+                       stateName : stateName,
+                       selectYear : selectYear
+                    })
+                })
+                .then((response) => {
+                    return response.json(); //나머지 경우에 사용
+                })
+                //fetch 통신 후 실행 영역
+                .then((data) => {//data -> controller에서 리턴되는 데이터!
+                    let number = data.propertyDamage;
+                    let thoundsNum = number.toLocaleString('ko-KR');
+                    tooltip.html(`<b>${event.properties.name}</b><br/> <span style="font-size: 20px;"> ${thoundsNum}</span> 건`)
+                })
+                //fetch 통신 실패 시 실행 영역
+                .catch(err=>{
+                    alert('fetch error!\nthen 구문에서 오류가 발생했습니다.\n콘솔창을 확인하세요!');
+                    console.log(err);
+                });    
         })
+        
         .on('mouseleave', function() {
-            d3.select(this).attr('fill', '#cacaca');
+            d3.select(this).attr('fill', '#3f3f3f');
             tooltip.style("display", "none"); // 툴팁 숨김
         });
 
@@ -66,6 +94,4 @@ async function main() {
 
 }
 
-main();
-
-  
+main();  

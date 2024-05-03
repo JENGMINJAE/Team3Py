@@ -1,5 +1,5 @@
 function gokoung(sidoBtn){
-    alert(sidoBtn.value);
+
     const sidoNm = sidoBtn.value;
     location.href='/sido/sidoMonth?sidoNm='+sidoNm;
 }

@@ -19,6 +19,14 @@ let threes = Array.prototype.slice.call(document.querySelectorAll(".three"));
 
 
 
+
+
+
+
+
+
+
+// ////////////////////// 시도별 재산피해 그래프////////////////////
 // 2021
 ones.forEach(function(one){
     one2021List.push(one.value);
@@ -38,6 +46,12 @@ threes.forEach(function(three){
     
 })
 console.log(three2023List)
+
+
+
+
+
+
 
 new Chart(document.getElementById("line-chart"), 
 { 
@@ -87,6 +101,7 @@ new Chart(document.getElementById("line-chart"),
 
 
 
+
 //  숫자를 한글로 읽기
 function convertToKoreanNumber(numk) { 
     
@@ -95,7 +110,7 @@ function convertToKoreanNumber(numk) {
 
     let result = ''; 
     let digits = ['영','일','이','삼','사','오','육','칠','팔','구']; 
-    let units = ['', '십', '백', '천', '만', '십', '백', '천', '억', '십억', '백억', '천억', '조', '십조', '백조', '천조']; 
+    let units = ['', '십', '백', '천', '만', '십', '백', '천', '억', '십', '백', '천', '조', '십', '백', '천']; 
     let numStr = num.toString(); // 문자열로 변환 
     let numLen = numStr.length; // 문자열의 길이 
     

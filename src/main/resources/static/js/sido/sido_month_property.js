@@ -1,75 +1,70 @@
 
 
-// 시도별 월별 2021년
-const month21_1 = document.querySelector('#month21_1').value;
-const month21_2 = document.querySelector('#month21_2').value;
-const month21_3 = document.querySelector('#month21_3').value;
-const month21_4 = document.querySelector('#month21_4').value;
-const month21_5 = document.querySelector('#month21_5').value;
-const month21_6 = document.querySelector('#month21_6').value;
-const month21_7 = document.querySelector('#month21_7').value;
-const month21_8 = document.querySelector('#month21_8').value;
-const month21_9 = document.querySelector('#month21_9').value;
-const month21_10 = document.querySelector('#month21_10').value;
-const month21_11 = document.querySelector('#month21_11').value;
-const month21_12 = document.querySelector('#month21_12').value;
 
-// 시도별 월별 2022년
-const month22_1 = document.querySelector('#month22_1').value;
-const month22_2 = document.querySelector('#month22_2').value;
-const month22_3 = document.querySelector('#month22_3').value;
-const month22_4 = document.querySelector('#month22_4').value;
-const month22_5 = document.querySelector('#month22_5').value;
-const month22_6 = document.querySelector('#month22_6').value;
-const month22_7 = document.querySelector('#month22_7').value;
-const month22_8 = document.querySelector('#month22_8').value;
-const month22_9 = document.querySelector('#month22_9').value;
-const month22_10 = document.querySelector('#month22_10').value;
-const month22_11 = document.querySelector('#month22_11').value;
-const month22_12 = document.querySelector('#month22_12').value;
 
-// 시도별 월별 2023년
-const month23_1 = document.querySelector('#month23_1').value;
-const month23_2 = document.querySelector('#month23_2').value;
-const month23_3 = document.querySelector('#month23_3').value;
-const month23_4 = document.querySelector('#month23_4').value;
-const month23_5 = document.querySelector('#month23_5').value;
-const month23_6 = document.querySelector('#month23_6').value;
-const month23_7 = document.querySelector('#month23_7').value;
-const month23_8 = document.querySelector('#month23_8').value;
-const month23_9 = document.querySelector('#month23_9').value;
-const month23_10 = document.querySelector('#month23_10').value;
-const month23_11 = document.querySelector('#month23_11').value;
-const month23_12 = document.querySelector('#month23_12').value;
+let month2021List=[]
+let month2022List=[]
+let month2023List=[]
 
-new Chart(document.getElementById("line-chart"), { 
+// 데이터 불러오기
+let ones = Array.prototype.slice.call(document.querySelectorAll(".one"));
+let twos = Array.prototype.slice.call(document.querySelectorAll(".two"));
+let threes = Array.prototype.slice.call(document.querySelectorAll(".three"));
+
+// //////////////////////월별 재산피해 그래프////////////////////
+// 2021
+ones.forEach(function(one){
+    month2021List.push(one.value);
+    
+})
+console.log(month2021List);
+// 2022
+twos.forEach(function(two){
+    month2022List.push(two.value);
+    
+})
+console.log(month2022List);
+
+// 2023
+threes.forEach(function(three){
+    month2023List.push(three.value);
+    
+})
+console.log(month2023List)
+
+
+
+
+
+
+new Chart(document.getElementById("line-chart3"), { 
                     type: 'line', 
                     data: { 
                             labels: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'], 
                             datasets: [
                                 
                                         {   
-                                            data: [month21_1,month21_2,month21_3,month21_4,month21_5,month21_6,month21_7,month21_8,month21_9,month21_10,month21_11,month21_12], 
-                                            label: "2021", 
+                                            data: month2021List, 
+                                            label: "2021년도", 
                                             borderColor: "#3cba9f", 
                                             fill: false
                                         }, 
                                         { 
-                                            data: [month22_1,month22_2,month22_3,month22_4,month22_5,month22_6,month22_7,month22_8,month22_9,month22_10,month22_11,month22_12], 
-                                            label: "2022", 
+                                            data: month2022List, 
+                                            label: "2022년도", 
                                             borderColor: "#e8c3b9", 
                                             fill: false 
                                         }, 
                                         { 
-                                            data:[month23_1,month23_2,month23_3,month23_4,month23_5,month23_6,month23_7,month23_8,month23_9,month23_10,month23_11,month23_12], 
-                                            label: "2023", 
+                                            data:month2023List, 
+                                            label: "2023년도", 
                                             borderColor: "#c45850", 
                                             fill: false 
                                         } 
                                     ] 
                             }, 
                     options: { 
-                                title: { display: false, text: '년도별/월별  화재 재산피해액' } 
+                                title: { display: false, text: '년도별/월별  화재 재산피해액' }
                             } 
 });
 

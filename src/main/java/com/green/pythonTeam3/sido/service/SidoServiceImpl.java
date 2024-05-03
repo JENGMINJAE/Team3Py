@@ -1,5 +1,6 @@
 package com.green.pythonTeam3.sido.service;
 
+import com.green.pythonTeam3.sido.vo.Python3VO;
 import com.green.pythonTeam3.sido.vo.Python4VO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ public class SidoServiceImpl implements SidoService {
     @Autowired
     private SqlSessionTemplate sqlSession;
 
-
+// ////////////////// 시도별  데이터 //////////////////////////
     //  #################  년도별 조회 ###################
     @Override
     public List<Python4VO> property2021() {
@@ -57,4 +58,15 @@ public class SidoServiceImpl implements SidoService {
     public List<Python4VO> totalProperty() {
         return sqlSession.selectList("sidoMapper.totalProperty");
     }
+
+
+// ////////////////// 시도별 인명 피해 데이터 //////////////////////////
+
+    //  #################  2021~2023년 총 발생건수 & 인명피해인원수 ###################
+    @Override
+    public List<Python3VO> totalVictim() {
+        return sqlSession.selectList("sidoMapper.totalVictim");
+    }
+
+
 }

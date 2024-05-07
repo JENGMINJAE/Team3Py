@@ -23,7 +23,7 @@ public class RankingController {
     //메인 페이지 top3 목록 조회 - 비동기
     @ResponseBody
     @PostMapping("/mainRankingFetch")
-    public Map<String, Object> mainTop3(@RequestParam(name = "selectYear")int selectYear, Model model){
+    public Map<String, Object> mainTop3(@RequestParam(name = "selectYear")int selectYear){
         Map<String,Object> map = new HashMap<>();
         //1. 발화장소 - 대분류명
         List<FireStartPlaceVO> mainTopList1 = rankingService.mainPlaceTop1(selectYear);

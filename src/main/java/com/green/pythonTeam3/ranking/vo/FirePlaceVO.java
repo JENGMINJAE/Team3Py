@@ -19,5 +19,5 @@ public class FirePlaceVO {
     private String fireLocation; // 화재장소구분명
     // 토탈
     private int count;
-    private FireStartPlaceVO fireStartPlaceVO; //
+    private FireStartPlaceVO fireStartPlaceVO; //발화요인별
 }

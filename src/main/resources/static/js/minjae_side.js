@@ -28,8 +28,8 @@ fetch('/graph/graphFetch', { //요청경로
         data: {
             labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
             datasets: [
-                datas
-            
+                datas[1],
+                datas[0]
             ]
         },
         options: {
@@ -40,7 +40,7 @@ fetch('/graph/graphFetch', { //요청경로
             scale : {
                 y : {
                     min : 0,
-                    max : 5000
+                    max : 6000
                 }
             }
         }

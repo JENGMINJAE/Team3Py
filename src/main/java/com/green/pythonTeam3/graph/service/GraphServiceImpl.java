@@ -17,4 +17,9 @@ public class GraphServiceImpl implements GraphService{
     public List<FirePlaceVO> totalCnt(int selectYear) {
         return sqlSession.selectList("graphMapper.totalCnt",selectYear);
     }
+
+    @Override
+    public List<FirePlaceVO> monthStarPropertyDamage(int selectYear) {
+        return sqlSession.selectList("graphMapper.monthStarPropertyDamage",selectYear);
+    }
 }

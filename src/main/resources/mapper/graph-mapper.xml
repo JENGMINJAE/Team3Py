@@ -21,6 +21,14 @@
         GROUP BY substring(DATE_OF_INCIDENT,6,2)
         ORDER BY substring(DATE_OF_INCIDENT,6,2) ASC
     </select>
+    <select id="monthStarPropertyDamage" resultMap="firePlace">
+        SELECT
+        SUM(PROPERTY_DAMAGE) AS PROPERTY_DAMAGE
+        FROM python_7
+        WHERE SUBSTRING(DATE_OF_INCIDENT,1,4)= #{selectYear}
+        GROUP BY SUBSTRING(DATE_OF_INCIDENT,6,2)
+        ORDER BY SUBSTRING(DATE_OF_INCIDENT,6,2) ASC
+    </select>
 </mapper>
 
 

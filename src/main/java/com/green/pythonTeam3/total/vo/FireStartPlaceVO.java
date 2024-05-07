@@ -16,6 +16,5 @@ public class FireStartPlaceVO {
     private int hurtPeople; // 부상자인원수
     private int happenCnt; // 발생건수
     private int moneyDamage; // 재산피해소계금액
-    private FirePlaceVO firePlaceVO; //화재장소별 화재현황
     private int count; //카운트
 }

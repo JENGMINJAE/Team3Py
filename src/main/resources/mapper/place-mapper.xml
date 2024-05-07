@@ -13,6 +13,7 @@
         <result column="VICTIM_PERCENT"             property="victimPercent"/>
         <result column="NUMBER_OF_CASUALTIES"       property="numberOfCasualties"/>
         <result column="FIRE_LOCATION"              property="fireLocation"/>
+        <collection property="fireStartPlaceVO" resultMap="firstFirePlace" />
     </resultMap>
 
     <!-- 10. 발화장소 -->
@@ -24,7 +25,6 @@
         <result column="HAPPEN_CNT"                property="happenCnt"/>
         <result column="MONEY_DAMAGE"              property="moneyDamage"/>
         <result column="COUNT"                     property="count"/>
-        <association property="firePlaceVO"        resultMap="firePlace"/>
     </resultMap>
 
     <!-- 메인화면 top3 조회 -->
@@ -63,15 +63,15 @@
 
     <!-- 메인화면 top3 조회 -->
         <!-- 1. 발화장소 - 대분류명 -->
-    <select id="mainFactorTop1" resultMap="">
-        SELECT FIRE_FACTOR_BIG
-        , COUNT(FIRE_FACTOR_BIG) AS COUNT
-        FROM python_8
-        WHERE DATE_FORMAT(DATE_OF_INCIDENT,'%Y') = '2023'
-        GROUP BY FIRE_FACTOR_BIG
-        ORDER BY COUNT(FIRE_FACTOR_BIG) DESC
-        LIMIT 3;
-    </select>
+<!--    <select id="mainFactorTop1" resultMap="">-->
+<!--        SELECT FIRE_FACTOR_BIG-->
+<!--        , COUNT(FIRE_FACTOR_BIG) AS COUNT-->
+<!--        FROM python_8-->
+<!--        WHERE DATE_FORMAT(DATE_OF_INCIDENT,'%Y') = '2023'-->
+<!--        GROUP BY FIRE_FACTOR_BIG-->
+<!--        ORDER BY COUNT(FIRE_FACTOR_BIG) DESC-->
+<!--        LIMIT 3;-->
+<!--    </select>-->
 
 
 

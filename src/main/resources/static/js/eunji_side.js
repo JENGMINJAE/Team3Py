@@ -73,6 +73,7 @@ async function main() {
                 //fetch 통신 후 실행 영역
                 .then((data) => {//data -> controller에서 리턴되는 데이터!
                     let number = data.propertyDamage;
+                    // console.log(data);
                     let thoundsNum = number.toLocaleString('ko-KR');
                     tooltip.html(`<b>${event.properties.name}</b><br/> <span style="font-size: 20px;"> ${thoundsNum}</span> 건`)
                 })

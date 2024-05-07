@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface GraphService {
     List<FirePlaceVO> totalCnt(int selectYear);
+    List<FirePlaceVO> monthStarPropertyDamage(int selectYear);
 }

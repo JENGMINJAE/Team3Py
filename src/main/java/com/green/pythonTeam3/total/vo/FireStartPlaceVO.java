@@ -17,4 +17,5 @@ public class FireStartPlaceVO {
     private int happenCnt; // 발생건수
     private int moneyDamage; // 재산피해소계금액
     private int count; //카운트
+    private int upDown; //증감
 }

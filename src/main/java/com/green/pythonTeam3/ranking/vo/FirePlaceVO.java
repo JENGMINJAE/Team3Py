@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -17,7 +19,7 @@ public class FirePlaceVO {
     private int victimPercent; // 사고자인원수
     private int numberOfCasualties; // 인명피해인원수
     private String fireLocation; // 화재장소구분명
-    // 토탈
-    private int count;
+    private int count; //토탈
+    private int upDown; //증감
     private FireStartPlaceVO fireStartPlaceVO; //발화요인별
 }

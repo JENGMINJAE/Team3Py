@@ -88,7 +88,7 @@ new Chart(document.getElementById("line-chart"),
         scales : {yAxes:[{
         
             ticks: {
-                display :true,  stepSize: 200000000,  max:800000000,
+                display :true,  stepSize: 200000000000,  max:800000000000,
                 min: 0 }
         }]
         
@@ -97,8 +97,6 @@ new Chart(document.getElementById("line-chart"),
     } 
 
 });
-
-
 
 
 

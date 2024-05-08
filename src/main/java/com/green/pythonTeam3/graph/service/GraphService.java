@@ -5,6 +5,6 @@ import com.green.pythonTeam3.ranking.vo.FirePlaceVO;
 import java.util.List;
 
 public interface GraphService {
-    List<FirePlaceVO> totalCnt(int selectYear);
-    List<FirePlaceVO> monthStarPropertyDamage(int selectYear);
+    List<Integer> totalCnt(int selectYear);
+    List<Integer> monthStarPropertyDamage(int selectYear);
 }

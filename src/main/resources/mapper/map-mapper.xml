@@ -29,7 +29,7 @@
     </resultMap>
 
     <select id="localCnt" resultMap="localMap">
-        SELECT SUM(PROPERTY_DAMAGE) AS PROPERTY_DAMAGE
+        SELECT SUM(OCCURRENCES) AS OCCURRENCES
             , STATE_NAME
         FROM python_02
         WHERE SUBSTRING(DATE_OF_INCIDENT, 1, 4) = #{selectYear}

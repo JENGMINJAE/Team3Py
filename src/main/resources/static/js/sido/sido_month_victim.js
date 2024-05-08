@@ -15,17 +15,17 @@ let threeV = Array.prototype.slice.call(document.querySelectorAll(".threeVic"));
 oneV.forEach(function(one1){
     monthVic2021List.push(one1.value);    
 })
-console.log(monthVic2021List);
+
 // 2022
 twoV.forEach(function(two2){
     monthVic2022List.push(two2.value);
 })
-console.log(monthVic2022List);
+
 // 2023
 threeV.forEach(function(three3){
     monthVic2023List.push(three3.value);    
 })
-console.log(monthVic2023List);
+
 
 
 

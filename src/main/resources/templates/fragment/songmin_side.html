@@ -7,14 +7,19 @@
 
 <th:block th:fragment="songminSideFragment">
     <style>
+        .increase {
+            color: red;
+        }
+        .decrease {
+            color: blue;
+        }
         .text-over-cut {
-      display: block;
-      /* width: 195.38px; */
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin: 0;
-    }
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+        }
     </style>
 
     <div style="padding: 12px;">
@@ -81,19 +86,19 @@
                                                                     </div>
                                                                     <div id="ffn" class="col"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="ffc" class="col text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="ffup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 2순위 -->
                                                                 <div class="row">
@@ -108,19 +113,19 @@
                                                                     </div>
                                                                     <div id="fsn" class="col"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="fsc" class="col text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="fsup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 3순위 -->
                                                                 <div class="row">
@@ -135,19 +140,19 @@
                                                                     </div>
                                                                     <div id="ftn" class="col"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="ftc" class="col text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="ftup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -192,19 +197,19 @@
                                                                     </div>
                                                                     <div id="sfn" class="col"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="sfc" class="col text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="sfup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 2순위 -->
                                                                 <div class="row">
@@ -219,19 +224,19 @@
                                                                     </div>
                                                                     <div id="ssn" class="col"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="ssc" class="col text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="ssup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 3순위 -->
                                                                 <div class="row">
@@ -246,19 +251,19 @@
                                                                     </div>
                                                                     <div id="stn" class="col"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="stc" class="col text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="stup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -303,19 +308,19 @@
                                                                     </div>
                                                                     <div id="tfn" class="col"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="tfc" class="col text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="tfup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 2순위 -->
                                                                 <div class="row">
@@ -330,19 +335,19 @@
                                                                     </div>
                                                                     <div id="tsn" class="col"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="tsc" class="col text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="tsup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 3순위 -->
                                                                 <div class="row">
@@ -357,19 +362,19 @@
                                                                     </div>
                                                                     <div id="ttn" class="col"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="ttc" class="col text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="ttup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -438,19 +443,19 @@
                                                                     </div>
                                                                     <div id="sffn" class="col-7 text-over-cut"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="sffc" class="col-4 text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="sffup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 2순위 -->
                                                                 <div class="row">
@@ -465,19 +470,19 @@
                                                                     </div>
                                                                     <div id="sfsn" class="col-7 text-over-cut"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="sfsc" class="col-4 text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="sfsup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 3순위 -->
                                                                 <div class="row">
@@ -492,19 +497,19 @@
                                                                     </div>
                                                                     <div id="sftn"class="col-7 text-over-cut"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="sftc" class="col-4 text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="sftup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -553,19 +558,19 @@
                                                                     </div>
                                                                     <div id="ssfn" class="col-7 text-over-cut"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="ssfc" class="col-4 text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="ssfup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 2순위 -->
                                                                 <div class="row">
@@ -580,19 +585,19 @@
                                                                     </div>
                                                                     <div id="sssn" class="col-7 text-over-cut"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="sssc" class="col-4 text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="sssup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                                 <!-- 3순위 -->
                                                                 <div class="row">
@@ -607,19 +612,19 @@
                                                                     </div>
                                                                     <div id="sstn" class="col-7 text-over-cut"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        데이터
+                                                                        -
                                                                     </div>
                                                                     <div id="sstc" class="col-4 text-end"
                                                                         style="font-size: 18px; font-weight: bold;">
-                                                                        150건
+                                                                        -
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-1"></div>
                                                                     <div class="col text-danger"
-                                                                        style="font-size: 14px;">평균</div>
-                                                                    <div class="col text-end text-danger"
-                                                                        style="font-size: 14px;">1,340건</div>
+                                                                        style="font-size: 14px;">전년도 대비</div>
+                                                                    <div id="sstup" class="col text-end"
+                                                                        style="font-size: 14px;"> </div>
                                                                 </div>
                                                             </div>
                                                         </div>

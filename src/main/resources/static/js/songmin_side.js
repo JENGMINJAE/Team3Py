@@ -1,5 +1,23 @@
-///////////////////////////슬라이드//////////////////////////
 const yearSongmin = document.querySelector("#yearSongmin").value;
+// 메인 top3 - 장소 - 증감값 따라 증감 표시 변경
+function setUpDownText(element, upDown, selectYear) {
+    if(selectYear != 2021){
+        if (upDown > 0) {
+            element.innerHTML = `▲ ${upDown} 증가`;
+            element.classList.add('increase'); // 증가일 때 클래스 추가
+        } else if (upDown < 0) {
+            element.innerHTML = `▼ -${Math.abs(upDown)} 감소`;
+            element.classList.add('decrease'); // 감소일 때 클래스 추가
+        } else {
+            element.innerHTML = `${upDown} 증감`;
+        }    
+    }
+    else{
+        element.innerHTML = `-`;
+    }
+}
+
+///////////////////////////슬라이드//////////////////////////
 fetch('/ranking/mainRankingFetch', { //요청경로
     method: 'POST',
     cache: 'no-cache',
@@ -58,6 +76,30 @@ fetch('/ranking/mainRankingFetch', { //요청경로
     document.querySelector("#sssc").innerHTML=`${datas.mainTopList5[1].count}건`;
     document.querySelector("#sstn").innerHTML=`${datas.mainTopList5[2].chelateBigType}`;
     document.querySelector("#sstc").innerHTML=`${datas.mainTopList5[2].count}건`;
+
+
+        //메인 top3 - 장소 - 증감값
+        setUpDownText(document.querySelector("#ffup"), datas.mainTopList1[0].upDown,yearSongmin);
+        setUpDownText(document.querySelector("#fsup"), datas.mainTopList1[1].upDown,yearSongmin);
+        setUpDownText(document.querySelector("#ftup"), datas.mainTopList1[2].upDown,yearSongmin);
+
+        setUpDownText(document.querySelector("#sfup"), datas.mainTopList2[0].upDown,yearSongmin);
+        setUpDownText(document.querySelector("#ssup"), datas.mainTopList2[1].upDown,yearSongmin);
+        setUpDownText(document.querySelector("#stup"), datas.mainTopList2[2].upDown,yearSongmin);
+
+        setUpDownText(document.querySelector("#tfup"), datas.mainTopList3[0].upDown, yearSongmin);
+        setUpDownText(document.querySelector("#tsup"), datas.mainTopList3[1].upDown,yearSongmin);
+        setUpDownText(document.querySelector("#ttup"), datas.mainTopList3[2].upDown,yearSongmin);
+
+        //메인 top3 - 요인 - 증감값
+        setUpDownText(document.querySelector("#sffup"), datas.mainTopList4[0].upDown,yearSongmin);
+        setUpDownText(document.querySelector("#sfsup"), datas.mainTopList4[1].upDown,yearSongmin);
+        setUpDownText(document.querySelector("#sftup"), datas.mainTopList4[2].upDown,yearSongmin);
+
+        setUpDownText(document.querySelector("#ssfup"), datas.mainTopList5[0].upDown,yearSongmin);
+        setUpDownText(document.querySelector("#sssup"), datas.mainTopList5[1].upDown,yearSongmin);
+        setUpDownText(document.querySelector("#sstup"), datas.mainTopList5[2].upDown,yearSongmin);
+    
 
 })
 //fetch 통신 실패 시 실행 영역

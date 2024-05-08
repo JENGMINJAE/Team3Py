@@ -74,13 +74,25 @@ public class SidoController {
         /////////////// 재산피해 데이터 ///////////////////
         // 2021
         List<Python4VO> monthPro2021  = sidoService.monthPro2021(sidoNm);
+        for (int i = 0 ; i < monthPro2021.size() ; i++){
+            monthPro2021.get(i).setPrptDmgSbttAmt(monthPro2021.get(i).getPrptDmgSbttAmt() * 1000);
+        }
+        monthPro2021.get(0).setTotalPrpt(monthPro2021.get(0).getTotalPrpt() * 1000);
         model.addAttribute("monthPro2021", monthPro2021);
         // 2022
         System.out.println(monthPro2021);
         List<Python4VO> monthPro2022  = sidoService.monthPro2022(sidoNm);
+        for (int i = 0 ; i < monthPro2022.size() ; i++){
+            monthPro2022.get(i).setPrptDmgSbttAmt(monthPro2022.get(i).getPrptDmgSbttAmt() * 1000);
+        }
+        monthPro2022.get(0).setTotalPrpt(monthPro2022.get(0).getTotalPrpt() * 1000);
         model.addAttribute("monthPro2022", monthPro2022);
         // 2023
         List<Python4VO> monthPro2023  = sidoService.monthPro2023(sidoNm);
+        for (int i = 0 ; i < monthPro2023.size() ; i++){
+            monthPro2023.get(i).setPrptDmgSbttAmt(monthPro2023.get(i).getPrptDmgSbttAmt() * 1000);
+        }
+        monthPro2023.get(0).setTotalPrpt(monthPro2023.get(0).getTotalPrpt() * 1000);
         model.addAttribute("monthPro2023", monthPro2023);
 
         /////////////// 인명피해 데이터 ///////////////////

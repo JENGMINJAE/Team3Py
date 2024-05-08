@@ -17,20 +17,17 @@ ones.forEach(function(one){
     month2021List.push(one.value);
     
 })
-console.log(month2021List);
 // 2022
 twos.forEach(function(two){
     month2022List.push(two.value);
     
 })
-console.log(month2022List);
 
 // 2023
 threes.forEach(function(three){
     month2023List.push(three.value);
     
 })
-console.log(month2023List)
 
 
 
@@ -77,7 +74,7 @@ let my_td = document.getElementById('my_td');
 function convertToKoreanNumber(numk) { 
     
     let num = numk.innerText
-    console.log(num);
+
 
     let result = ''; 
     let digits = ['영','일','이','삼','사','오','육','칠','팔','구']; 
@@ -104,7 +101,7 @@ function convertToKoreanNumber(numk) {
                 }
                             
         }
-        console.log(result);
+
         numk.title=result;
         return result; 
 }

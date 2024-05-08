@@ -22,7 +22,6 @@ fetch('/graph/graphFetch', { //요청경로
 })
 //fetch 통신 후 실행 영역
 .then((datas) => {//data -> controller에서 리턴되는 데이터!
-    console.log(datas);
     new Chart(document.querySelector('#mixed-chart'), {
         type: 'bar',
         data: {

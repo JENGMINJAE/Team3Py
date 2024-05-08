@@ -27,21 +27,21 @@ public class GraphController {
         GraphVO graphVO2 = new GraphVO();
         int[] arr = new int[12];
         int[] arr2 = new int[12];
-        List<FirePlaceVO> a = graphService.totalCnt(selectYear);
-        List<FirePlaceVO> b = graphService.monthStarPropertyDamage(selectYear);
+        List<Integer> a = graphService.totalCnt(selectYear);
+        List<Integer> b = graphService.monthStarPropertyDamage(selectYear);
         for(int i = 0 ; i < a.size() ; i++){
-            arr[i] = a.get(i).getCount();
+            arr[i] = a.get(i);
         }
         for(int i = 0 ; i< b.size(); i++){
-            arr2[i] = b.get(i).getPropertyDamage()/100000;
+            arr2[i] = b.get(i)/100000;
         }
         graphVO.setLabel("화재발생");
-        graphVO2.setLabel("피해금액");
+        graphVO2.setLabel("피해금액(억원)");
         graphVO.setType("bar");
         graphVO2.setType("line");
-        graphVO.setBackgroundColor("rgba(246,187,67,1)");
-        graphVO2.setBackgroundColor("rgba(246,93,33,1)");
-        graphVO2.setBorderColor("rgba(246,93,33,1)");
+        graphVO.setBackgroundColor("rgb(246,187,67)");
+        graphVO2.setBackgroundColor("rgb(246,93,33)");
+        graphVO2.setBorderColor("rgb(246,93,33)");
         graphVO.setData(arr);
         graphVO2.setData(arr2);
 

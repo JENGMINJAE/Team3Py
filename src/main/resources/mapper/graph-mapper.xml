@@ -13,21 +13,21 @@
         <result column="FIRE_LOCATION" property="fireLocation"/>
         <result column="COUNT" property="count"/>
     </resultMap>
-	<select id="totalCnt" resultMap="firePlace">
+	<select id="totalCnt" resultType="int">
         SELECT
-        COUNT(*) as count
-        FROM python_7
-        WHERE substring(DATE_OF_INCIDENT,1,4) = #{selectYear}
-        GROUP BY substring(DATE_OF_INCIDENT,6,2)
-        ORDER BY substring(DATE_OF_INCIDENT,6,2) ASC
+            SUM(vctm_ocrn)
+        FROM python_3
+        WHERE substring(VCTM_MONTH,1,4) = #{selectYear}
+        GROUP BY substring(VCTM_MONTH,5,2)
+        ORDER BY substring(VCTM_MONTH,5,2) ASC
     </select>
-    <select id="monthStarPropertyDamage" resultMap="firePlace">
+    <select id="monthStarPropertyDamage" resultType="int">
         SELECT
-        SUM(PROPERTY_DAMAGE) AS PROPERTY_DAMAGE
-        FROM python_7
-        WHERE SUBSTRING(DATE_OF_INCIDENT,1,4)= #{selectYear}
-        GROUP BY SUBSTRING(DATE_OF_INCIDENT,6,2)
-        ORDER BY SUBSTRING(DATE_OF_INCIDENT,6,2) ASC
+        SUM(PRPT_DMG_SBTT_AMT)
+        FROM python_4
+        WHERE substring(OCRN_MONTH,1,4) = #{selectYear}
+        GROUP BY substring(OCRN_MONTH,5,2)
+        ORDER BY substring(OCRN_MONTH,5,2) ASC
     </select>
 </mapper>
 

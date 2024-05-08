@@ -16,6 +16,7 @@ public class MappingController {
     @ResponseBody
     @PostMapping("/mapFirst")
     public StateFireCntVO mapFirst(@RequestBody StateFireCntVO stateFireCntVO){
+        System.out.println(stateFireCntVO);
         return mappingService.localCnt(stateFireCntVO);
     };
 }

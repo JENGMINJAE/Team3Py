@@ -17,5 +17,7 @@ public class FireFactorVO {
     private String dateOfIncident; // 발생일자
     private int victimPercent; // 사고자인원수
     private String fireFactorSmall; // 발화요인소분류명
+    private int count; //카운트
     private FirstChelateVO firstChelateVO; //최초착화물별화재현황
+    private int upDown; //증감
 }

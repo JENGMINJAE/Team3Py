@@ -22,26 +22,43 @@ fetch('/ranking/mainRankingFetch', { //요청경로
 })
 //fetch 통신 후 실행 영역
 .then((datas) => {//data -> controller에서 리턴되는 데이터!
+    // 메인 top3 - 장소
     document.querySelector("#ffn").innerHTML=`${datas.mainTopList1[0].placeBigType}`;
-    document.querySelector("#ffc").innerHTML='';
+    document.querySelector("#ffc").innerHTML=`${datas.mainTopList1[0].count}건`;
     document.querySelector("#fsn").innerHTML=`${datas.mainTopList1[1].placeBigType}`;
-    document.querySelector("#fsc").innerHTML='';
+    document.querySelector("#fsc").innerHTML=`${datas.mainTopList1[1].count}건`;
     document.querySelector("#ftn").innerHTML=`${datas.mainTopList1[2].placeBigType}`;
-    document.querySelector("#ftc").innerHTML='';
+    document.querySelector("#ftc").innerHTML=`${datas.mainTopList1[2].count}건`;
+
     document.querySelector("#sfn").innerHTML=`${datas.mainTopList2[0].placeMediumType}`;
-    document.querySelector("#sfc").innerHTML='';
+    document.querySelector("#sfc").innerHTML=`${datas.mainTopList2[0].count}건`;
     document.querySelector("#ssn").innerHTML=`${datas.mainTopList2[1].placeMediumType}`;
-    document.querySelector("#ssc").innerHTML='';
+    document.querySelector("#ssc").innerHTML=`${datas.mainTopList2[1].count}건`;
     document.querySelector("#stn").innerHTML=`${datas.mainTopList2[2].placeMediumType}`;
-    document.querySelector("#stc").innerHTML='';
+    document.querySelector("#stc").innerHTML=`${datas.mainTopList2[2].count}건`;
+
     document.querySelector("#tfn").innerHTML=`${datas.mainTopList3[0].fireLocation}`;
-    document.querySelector("#tfc").innerHTML='';
+    document.querySelector("#tfc").innerHTML=`${datas.mainTopList3[0].count}건`;
     document.querySelector("#tsn").innerHTML=`${datas.mainTopList3[1].fireLocation}`;
-    document.querySelector("#tsc").innerHTML='';
+    document.querySelector("#tsc").innerHTML=`${datas.mainTopList3[1].count}건`;
     document.querySelector("#ttn").innerHTML=`${datas.mainTopList3[2].fireLocation}`;
-    document.querySelector("#ttc").innerHTML='';
-    
-    mainTopList1.insertAdjacentHTML()
+    document.querySelector("#ttc").innerHTML=`${datas.mainTopList3[2].count}건`;
+
+    //메인 top3 - 요인
+    document.querySelector("#sffn").innerHTML=`${datas.mainTopList4[0].fireFactorBig}`;
+    document.querySelector("#sffc").innerHTML=`${datas.mainTopList4[0].count}건`;
+    document.querySelector("#sfsn").innerHTML=`${datas.mainTopList4[1].fireFactorBig}`;
+    document.querySelector("#sfsc").innerHTML=`${datas.mainTopList4[1].count}건`;
+    document.querySelector("#sftn").innerHTML=`${datas.mainTopList4[2].fireFactorBig}`;
+    document.querySelector("#sftc").innerHTML=`${datas.mainTopList4[2].count}건`;
+
+    document.querySelector("#ssfn").innerHTML=`${datas.mainTopList5[0].chelateBigType}`;
+    document.querySelector("#ssfc").innerHTML=`${datas.mainTopList5[0].count}건`;
+    document.querySelector("#sssn").innerHTML=`${datas.mainTopList5[1].chelateBigType}`;
+    document.querySelector("#sssc").innerHTML=`${datas.mainTopList5[1].count}건`;
+    document.querySelector("#sstn").innerHTML=`${datas.mainTopList5[2].chelateBigType}`;
+    document.querySelector("#sstc").innerHTML=`${datas.mainTopList5[2].count}건`;
+
 })
 //fetch 통신 실패 시 실행 영역
 .catch(err=>{

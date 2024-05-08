@@ -13,7 +13,8 @@
         <result column="VICTIM_PERCENT"             property="victimPercent"/>
         <result column="NUMBER_OF_CASUALTIES"       property="numberOfCasualties"/>
         <result column="FIRE_LOCATION"              property="fireLocation"/>
-        <collection property="fireStartPlaceVO" resultMap="firstFirePlace" />
+        <result column="COUNT"                      property="count"/>
+        <collection property="fireStartPlaceVO"     resultMap="firstFirePlace" />
     </resultMap>
 
     <!-- 10. 발화장소 -->
@@ -61,19 +62,55 @@
         LIMIT 3;
     </select>
 
-    <!-- 메인화면 top3 조회 -->
-        <!-- 1. 발화장소 - 대분류명 -->
 
-<!--    <select id="mainFactorTop1" resultMap="">-->
-<!--        SELECT FIRE_FACTOR_BIG-->
-<!--        , COUNT(FIRE_FACTOR_BIG) AS COUNT-->
-<!--        FROM python_8-->
-<!--        WHERE DATE_FORMAT(DATE_OF_INCIDENT,'%Y') = '2023'-->
-<!--        GROUP BY FIRE_FACTOR_BIG-->
-<!--        ORDER BY COUNT(FIRE_FACTOR_BIG) DESC-->
-<!--        LIMIT 3;-->
-<!--    </select>-->
+    <!-- 메인화면 top3 증감값 조회 -->
+        <!-- 1. 발화장소 - 대분류명  -->
+    <select id="mainPlaceUD1" resultType="int">
+        SELECT
+            subquery.`selectCount` - subquery.`lastYearCount` AS 'upDown'
+        FROM (
+            SELECT
+            PLACE_BIG_TYPE,
+            SUM(CASE WHEN DATE_FORMAT(HAPPEN_DATE, '%Y') = #{selectYear} THEN 1 ELSE 0 END) AS 'selectCount',
+            SUM(CASE WHEN DATE_FORMAT(HAPPEN_DATE, '%Y') = (#{selectYear} - 1) THEN 1 ELSE 0 END) AS 'lastYearCount'
+            FROM python_10
+            GROUP BY PLACE_BIG_TYPE
+            ORDER BY `selectCount` DESC
+            LIMIT 3
+        ) AS subquery
+    </select>
 
+        <!-- 2. 발화장소 - 중분류명  -->
+    <select id="mainPlaceUD2" resultType="int">
+        SELECT
+            subquery.`selectCount` - subquery.`lastYearCount` AS 'upDown'
+        FROM (
+            SELECT
+            PLACE_MIDEUM_TYPE,
+            SUM(CASE WHEN DATE_FORMAT(HAPPEN_DATE, '%Y') = #{selectYear} THEN 1 ELSE 0 END) AS 'selectCount',
+            SUM(CASE WHEN DATE_FORMAT(HAPPEN_DATE, '%Y') = (#{selectYear} - 1) THEN 1 ELSE 0 END) AS 'lastYearCount'
+            FROM python_10
+            GROUP BY PLACE_MIDEUM_TYPE
+            ORDER BY `selectCount` DESC
+            LIMIT 3
+        ) AS subquery
+    </select>
+
+        <!-- 3. 발화장소 - 대분류명 -->
+    <select id="mainPlaceUD3" resultType="int">
+        SELECT
+            subquery.`selectCount` - subquery.`lastYearCount` AS 'upDown'
+        FROM (
+            SELECT
+            FIRE_LOCATION,
+            SUM(CASE WHEN DATE_FORMAT(DATE_OF_INCIDENT, '%Y') = #{selectYear} THEN 1 ELSE 0 END) AS 'selectCount',
+            SUM(CASE WHEN DATE_FORMAT(DATE_OF_INCIDENT, '%Y') = (#{selectYear} - 1) THEN 1 ELSE 0 END) AS 'lastYearCount'
+            FROM python_7
+            GROUP BY FIRE_LOCATION
+            ORDER BY `selectCount` DESC
+            LIMIT 3
+        ) AS subquery
+    </select>
 
 
 

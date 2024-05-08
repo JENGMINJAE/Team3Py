@@ -13,7 +13,7 @@ public class Python4VO {
     private String ocrnMonth;
     private String sidoNm;
     private int ocrnMnb;
-    private int prptDmgSbttAmt;
+    private long prptDmgSbttAmt;
 
     private int lifeDmgPercnt;
     private int totalOcrn;

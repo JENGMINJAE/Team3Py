@@ -23,7 +23,6 @@ fetch('/sido/sidoFetch2023', { //요청경로
 })
 //fetch 통신 후 실행 영역
 .then((datas) => {//data -> controller에서 리턴되는 데이터!
-    console.log(datas);
     
 // //////////////////////화재 발생건수 ///////////////////////////////////////////    
 let fireCount=document.querySelector('.fireCount');

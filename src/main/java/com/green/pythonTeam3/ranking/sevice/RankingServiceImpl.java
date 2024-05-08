@@ -77,5 +77,15 @@ public class RankingServiceImpl implements RankingService{
         return sqlSession.selectList("factorMapper.mainFactorUD2", selectYear);
     }
 
+    @Override
+    public FirePlaceVO avgFirePlace() {
+        return sqlSession.selectOne("placeMapper.avgFirePlace");
+    }
+
+    @Override
+    public FireFactorVO avgFireFactor() {
+        return sqlSession.selectOne("factorMapper.avgFireFactor");
+    }
+
 
 }

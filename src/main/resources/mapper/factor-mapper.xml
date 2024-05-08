@@ -13,6 +13,7 @@
         <result column="VICTIM_PERCENT"         property="victimPercent"/>
         <result column="FIRE_FACTOR_SMALL"      property="fireFactorSmall"/>
         <result column="COUNT"                  property="count"/>
+        <result column="AVG_OCCURRENCES"        property="avgOccurrences" />
         <collection property="firstChelateVO"    resultMap="firstChelate" />
     </resultMap>
 
@@ -81,6 +82,17 @@
             ORDER BY `selectCount` DESC
             LIMIT 3
         ) AS subquery
+    </select>
+
+    <!-- 발화요인 평균 -->
+    <select id="avgFireFactor" resultMap="fireFactor">
+        SELECT FIRE_FACTOR_BIG
+            , SUM(OCCURRENCES) / 1095 AS AVG_OCCURRENCES
+        FROM python_8
+        WHERE YEAR(DATE_OF_INCIDENT) IN (2021, 2022, 2023) AND MONTH(DATE_OF_INCIDENT) = 1
+        GROUP BY FIRE_FACTOR_BIG
+        ORDER BY AVG_OCCURRENCES DESC
+        LIMIT 1
     </select>
 
 </mapper>

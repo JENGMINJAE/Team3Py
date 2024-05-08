@@ -37,5 +37,11 @@ public interface RankingService {
     //2. 최초착화물 - 대분류명
     List<Integer> mainFactorUD2(int selectYear);
 
+    // 화재장소 평균
+    FirePlaceVO avgFirePlace();
+
+    // 발화요인 평균
+    FireFactorVO avgFireFactor();
+
 
 }

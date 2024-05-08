@@ -1,4 +1,69 @@
 const yearSongmin = document.querySelector("#yearSongmin").value;
+
+
+const avgThreeYears = () => {
+    fetch('/ranking/avgThreeYears', { //요청경로
+        method: 'POST',
+        cache: 'no-cache',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        //컨트롤러로 전달할 데이터
+        body: JSON.stringify({
+           // 데이터명 : 데이터값
+        })
+    })
+    .then((response) => {
+        return response.json(); //나머지 경우에 사용
+    })
+    //fetch 통신 후 실행 영역
+    .then((data) => {//data -> controller에서 리턴되는 데이터!
+        const avgFirePlace_tag = document.querySelector('.show-avgFirePlace');
+        const avgFireFactor_tag = document.querySelector('.show-avgFireFactor');
+        const avg_title_tag = document.querySelector('.show-avg-title');
+        avgFirePlace_tag.innerHTML = '';
+        avgFireFactor_tag.innerHTML = '';
+        avg_title_tag.innerHTML ='';
+        avg_title_tag.innerText = `${data.avgFirePlace.dateOfIncident}월 예상 위험요인`;
+        let factorStr = `
+            <div class="col">
+                <div class="row">
+                    <div class="col" style="font-weight: bold; font-size: 1rem;">
+                        ${data.avgFireFactor.fireFactorBig}
+                    </div>
+                    <div class="col" style="font-size: 1rem;">
+                        ${data.avgFireFactor.avgOccurrences}%
+                    </div>
+                </div>
+            </div>
+        `;
+
+        let placeStr = `
+            <div class="col">
+                <div class="row">
+                    <div class="col" style="font-weight: bold; font-size: 1rem;">
+                        ${data.avgFirePlace.fireLocation}
+                    </div>
+                    <div class="col" style="font-size: 1rem;">
+                        ${data.avgFirePlace.avgOccurrences}%
+                    </div>
+                </div>
+            </div> 
+        `;
+
+        avgFirePlace_tag.insertAdjacentHTML('afterbegin', placeStr);
+        avgFireFactor_tag.insertAdjacentHTML('afterbegin', factorStr);
+        
+    })
+    //fetch 통신 실패 시 실행 영역
+    .catch(err=>{
+        alert('fetch error!\nthen 구문에서 오류가 발생했습니다.\n콘솔창을 확인하세요!');
+        console.log(err);
+    });
+    
+
+}
+avgThreeYears();
 // 메인 top3 - 장소 - 증감값 따라 증감 표시 변경
 function setUpDownText(element, upDown, selectYear) {
     if(selectYear != 2021){
@@ -107,3 +172,5 @@ fetch('/ranking/mainRankingFetch', { //요청경로
     alert('fetch error!\nthen 구문에서 오류가 발생했습니다.\n콘솔창을 확인하세요!');
     console.log(err);
 });
+
+

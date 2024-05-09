@@ -2,29 +2,32 @@
 <html lang="en">
 <th:block th:fragment="headerFragment">
     <div class="row mt-3" onclick="gomain()">
-        <div class="col-6">
-            <img src="/img/symbol.png" style="height: 110px;"><span style="font-weight: bold; font-size: 3rem;">화재모니터링 시스템</span>
+        <div class="col-1" style="margin-top: 0.5%; margin-left: 2%;" >
+            <img src="/img/symbol.png" style="height: 25%;">
         </div>
         <div class="col-5">
+            <span style="margin-left: 1%; font-weight: bold; font-size: 3rem;">화재모니터링 시스템</span>
+        </div>
+        <div class="col-5" style="margin-top: .5%; margin-left: 5%;">
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">
+                    <a class="nav-link" aria-current="page" href="/" style="--bs-nav-link-color: black; --bs-nav-link-hover-color: orange;">
                         <h3>Home</h3>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">
-                        <h3>연도별 화재피해</h3>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/sido/sidoFirst">
+                    <a class="nav-link" href="/sido/sidoFirst" style="--bs-nav-link-color: black; --bs-nav-link-hover-color: orange;">
                         <h3>시도별 화재피해</h3>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/statistics/statisticsFirst">
+                    <a class="nav-link" href="/statistics/statisticsFirst" style="--bs-nav-link-color: black; --bs-nav-link-hover-color: orange;">
                         <h3>화재통계</h3>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#" style="--bs-nav-link-color: black; --bs-nav-link-hover-color: orange;">
+                        <h3>피해통계</h3>
                     </a>
                 </li>
             </ul>

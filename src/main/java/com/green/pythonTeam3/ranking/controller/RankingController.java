@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,12 +71,25 @@ public class RankingController {
             mainTopList5.get(i).setUpDown(mainFactorUD2.get(i));
         }
         map.put("mainTopList5", mainTopList5);
-
-        System.out.println(map);
-
-
         return map;
     };
+
+    // 3개년 평균
+    @ResponseBody
+    @PostMapping("/avgThreeYears")
+    public Map<String, Object> avgThreeYears(){
+        Map<String, Object> result = new HashMap<>();
+        DecimalFormat df = new DecimalFormat("#.##"); // 반올림
+        FirePlaceVO vo1 = rankingService.avgFirePlace();
+        FireFactorVO vo2 = rankingService.avgFireFactor();
+        double avgPlace = Double.parseDouble(df.format(vo1.getAvgOccurrences()));
+        double avgFactor = Double.parseDouble(df.format(vo2.getAvgOccurrences()));
+        vo1.setAvgOccurrences(avgPlace);
+        vo2.setAvgOccurrences(avgFactor);
+        result.put("avgFirePlace", vo1);
+        result.put("avgFireFactor", vo2);
+        return result;
+    }
 
     //화재피해장소 페이지
     @GetMapping("/place")

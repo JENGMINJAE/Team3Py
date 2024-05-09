@@ -14,12 +14,12 @@ public class GraphServiceImpl implements GraphService{
     private SqlSessionTemplate sqlSession;
 
     @Override
-    public List<FirePlaceVO> totalCnt(int selectYear) {
+    public List<Integer> totalCnt(int selectYear) {
         return sqlSession.selectList("graphMapper.totalCnt",selectYear);
     }
 
     @Override
-    public List<FirePlaceVO> monthStarPropertyDamage(int selectYear) {
+    public List<Integer> monthStarPropertyDamage(int selectYear) {
         return sqlSession.selectList("graphMapper.monthStarPropertyDamage",selectYear);
     }
 }

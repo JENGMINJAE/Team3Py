@@ -14,6 +14,7 @@
         <result column="NUMBER_OF_CASUALTIES"       property="numberOfCasualties"/>
         <result column="FIRE_LOCATION"              property="fireLocation"/>
         <result column="COUNT"                      property="count"/>
+        <result column="AVG_OCCURRENCES"            property="avgOccurrences" />
         <collection property="fireStartPlaceVO"     resultMap="firstFirePlace" />
     </resultMap>
 
@@ -112,7 +113,17 @@
         ) AS subquery
     </select>
 
-
+    <!-- 화재장소 평균 -->
+    <select id="avgFirePlace" resultMap="firePlace">
+        SELECT FIRE_LOCATION
+            , SUM(OCCURRENCES) / 1095 AS AVG_OCCURRENCES
+            , MONTH(NOW()) AS DATE_OF_INCIDENT
+        FROM python_7
+        WHERE YEAR(DATE_OF_INCIDENT) IN (2021, 2022, 2023) AND MONTH(DATE_OF_INCIDENT) = 1
+        GROUP BY FIRE_LOCATION
+        ORDER BY AVG_OCCURRENCES DESC
+        LIMIT 1
+    </select>
 
 </mapper>
 

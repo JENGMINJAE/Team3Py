@@ -20,4 +20,5 @@ public class FireFactorVO {
     private int count; //카운트
     private FirstChelateVO firstChelateVO; //최초착화물별화재현황
     private int upDown; //증감
+    private double avgOccurrences; // 평균 발생건수
 }

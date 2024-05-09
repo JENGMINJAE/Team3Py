@@ -21,5 +21,6 @@ public class FirePlaceVO {
     private String fireLocation; // 화재장소구분명
     private int count; //토탈
     private int upDown; //증감
+    private double avgOccurrences; // 평균 발생건수
     private FireStartPlaceVO fireStartPlaceVO; //발화요인별
 }

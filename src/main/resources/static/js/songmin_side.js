@@ -28,10 +28,10 @@ const avgThreeYears = () => {
         let factorStr = `
             <div class="col">
                 <div class="row">
-                    <div class="col" style="font-weight: bold; font-size: 1rem;">
+                    <div class="col" style="font-weight: bold; font-size: 1.5rem; padding-left:13%;">
                         ${data.avgFireFactor.fireFactorBig}
                     </div>
-                    <div class="col" style="font-size: 1rem;">
+                    <div class="col" style="font-size: 1.5rem;">
                         ${data.avgFireFactor.avgOccurrences}%
                     </div>
                 </div>
@@ -41,10 +41,10 @@ const avgThreeYears = () => {
         let placeStr = `
             <div class="col">
                 <div class="row">
-                    <div class="col" style="font-weight: bold; font-size: 1rem;">
+                    <div class="col" style="font-weight: bold; font-size: 1.5rem; padding-left:13%;">
                         ${data.avgFirePlace.fireLocation}
                     </div>
-                    <div class="col" style="font-size: 1rem;">
+                    <div class="col" style="font-size: 1.5rem;">
                         ${data.avgFirePlace.avgOccurrences}%
                     </div>
                 </div>

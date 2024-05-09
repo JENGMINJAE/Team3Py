@@ -80,7 +80,6 @@ public class SidoController {
         monthPro2021.get(0).setTotalPrpt(monthPro2021.get(0).getTotalPrpt() * 1000);
         model.addAttribute("monthPro2021", monthPro2021);
         // 2022
-        System.out.println(monthPro2021);
         List<Python4VO> monthPro2022  = sidoService.monthPro2022(sidoNm);
         for (int i = 0 ; i < monthPro2022.size() ; i++){
             monthPro2022.get(i).setPrptDmgSbttAmt(monthPro2022.get(i).getPrptDmgSbttAmt() * 1000);
@@ -106,7 +105,7 @@ public class SidoController {
         @PostMapping("/sidoFetch2023")
         public Python4VO sidoFetch2023(@RequestParam(name = "selectYear")int selectYear){
             Python4VO selectYear2023 = sidoService.selectYears(selectYear);
-            System.out.println("555555555555" + selectYear2023);
+            selectYear2023.setTotalPrpt(selectYear2023.getTotalPrpt()*1000);
             return selectYear2023;
         }
 

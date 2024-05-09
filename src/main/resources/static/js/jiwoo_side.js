@@ -37,7 +37,7 @@ let counting=setInterval(function(){
     else{
         count+= parseInt(max/10);
     }
-    fireCount.innerHTML=new Intl.NumberFormat().format(count);
+    fireCount.innerHTML=new Intl.NumberFormat().format(count)+`건`;
 }, 90);
 
 // ///////////////////인명피해인원수///////////////////
@@ -53,7 +53,7 @@ let counting1=setInterval(function(){
     else{
         count1+= parseInt(max1/10);
     }
-    victimCount.innerHTML=new Intl.NumberFormat().format(count1);
+    victimCount.innerHTML=new Intl.NumberFormat().format(count1)+`명`;
 }, 90);
 
 
@@ -70,7 +70,7 @@ let counting2=setInterval(function(){
     else{
         count2+= parseInt(max2/10);
     }
-    propertyCount.innerHTML=new Intl.NumberFormat().format(count2);
+    propertyCount.innerHTML=new Intl.NumberFormat().format(count2)+`원`;
 }, 90);
 
 })

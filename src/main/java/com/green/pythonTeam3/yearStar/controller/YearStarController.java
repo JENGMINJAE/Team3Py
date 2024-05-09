@@ -11,4 +11,7 @@ public class YearStarController {
     @Resource(name = "yearStarService")
     private YearStarServiceImpl yearStarService;
 
+    public String whatKindOfDataShow(){
+        return "";
+    }
 }

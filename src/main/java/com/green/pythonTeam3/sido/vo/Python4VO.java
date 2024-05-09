@@ -21,5 +21,15 @@ public class Python4VO {
     private long totalLife;
     private int selectYear;
 
+    // 화재통계 조회
+
+    private long totalOccurrences;
+    private long occurrences2021;
+    private long occurrences2022;
+    private long occurrences2023;
+    private long totalPropertyDamage;
+    private long propertyDamage2021;
+    private long propertyDamage2022;
+    private long propertyDamage2023;
 
 }

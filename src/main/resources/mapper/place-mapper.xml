@@ -32,7 +32,7 @@
         <!-- 1. 발화장소 - 대분류명 -->
     <select id="mainPlaceTop1" resultMap="firstFirePlace">
         SELECT PLACE_BIG_TYPE
-        , COUNT(PLACE_BIG_TYPE) AS count
+        , COUNT(PLACE_BIG_TYPE) AS COUNT
         FROM python_10
         WHERE DATE_FORMAT(HAPPEN_DATE,'%Y') = #{selectYear}
         GROUP BY PLACE_BIG_TYPE

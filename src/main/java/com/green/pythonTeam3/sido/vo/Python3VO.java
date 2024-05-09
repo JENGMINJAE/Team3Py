@@ -17,4 +17,15 @@ public class Python3VO {
     private long totalOcrn;
     private long totalPrpt;
 
+    //화재통계 조회
+    private int totalLifeDmgPercnt;
+    private int LifeDmgPercnt2021;
+    private int LifeDmgPercnt2022;
+    private int LifeDmgPercnt2023;
+
+    private int occurrencesCount2021;
+    private int occurrencesCount2022;
+    private int occurrencesCount2023;
+    private int totalOccurrencesCount;
+
 }

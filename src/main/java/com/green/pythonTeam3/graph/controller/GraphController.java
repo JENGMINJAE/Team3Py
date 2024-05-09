@@ -32,16 +32,16 @@ public class GraphController {
         for(int i = 0 ; i < a.size() ; i++){
             arr[i] = a.get(i);
         }
-        for(int i = 0 ; i< b.size(); i++){
+        for(int i = 0 ; i < b.size(); i++){
             arr2[i] = b.get(i)/100000;
         }
         graphVO.setLabel("화재발생");
         graphVO2.setLabel("피해금액(억원)");
         graphVO.setType("bar");
         graphVO2.setType("line");
-        graphVO.setBackgroundColor("rgb(246,187,67)");
-        graphVO2.setBackgroundColor("rgb(246,93,33)");
-        graphVO2.setBorderColor("rgb(246,93,33)");
+        graphVO.setBackgroundColor("rgba(246,187,67,0.7)");
+        graphVO2.setBackgroundColor("rgba(246,93,33,0.7)");
+        graphVO2.setBorderColor("rgba(246,93,33,0.7)");
         graphVO.setData(arr);
         graphVO2.setData(arr2);
 

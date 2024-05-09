@@ -2,6 +2,10 @@
 
   import * as topojson from 'https://cdn.skypack.dev/topojson@3.0.2';
   import * as d3 from 'https://cdn.skypack.dev/d3@v5.15.0';
+
+  const span_tag = document.querySelector('.states-span-tag');
+  const selectYear = document.querySelector("#year").value;
+  span_tag.textContent = `${selectYear}년 지역별 화재발생건`;
   let stateName = '';
   const topoDataPath = '/json/topoKorea.json';
 
@@ -16,8 +20,8 @@ function getGeoJson(topoData) {
 
 function getRenderData() {
     return {
-        width: 550,
-        height: 540,
+        width: 440,
+        height: 430,
         margin: 0,
     };
 }
@@ -41,7 +45,7 @@ async function main() {
         .data(geoJson.features)
         .enter().append('path')
         .attr('d', pathGen)
-        .attr('fill', '#3f3f3f')
+        .attr('fill', '#a5a5a5')
         .attr('stroke', '#e4e4e4')
         .on('mouseenter', function(event, d) {
             d3.select(this).attr('fill', '#ff8800')
@@ -52,7 +56,7 @@ async function main() {
                 .style("left", (event.pageX + 10) + "px")
                 .style("top", (event.pageY + 10) + "px");
                 stateName = event.properties.name;
-                const selectYear = document.querySelector("#year").value;
+                
 
                 fetch('/map/mapFirst', { //요청경로
                     method: 'POST',
@@ -72,8 +76,10 @@ async function main() {
                 })
                 //fetch 통신 후 실행 영역
                 .then((data) => {//data -> controller에서 리턴되는 데이터!
+                    
+
                     let number = data.occurrences;
-                    // console.log(data);
+                    console.log(data);
                     let thoundsNum = number.toLocaleString('ko-KR');
                     tooltip.html(`<b>${event.properties.name}</b><br/> <span style="font-size: 20px;"> ${thoundsNum}</span> 건`)
                 })
@@ -85,7 +91,7 @@ async function main() {
         })
         
         .on('mouseleave', function() {
-            d3.select(this).attr('fill', '#3f3f3f');
+            d3.select(this).attr('fill', '#a5a5a5');
             tooltip.style("display", "none"); // 툴팁 숨김
         });
 

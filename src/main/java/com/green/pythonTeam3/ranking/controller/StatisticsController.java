@@ -2,9 +2,11 @@ package com.green.pythonTeam3.ranking.controller;
 
 import com.green.pythonTeam3.ranking.sevice.RankingServiceImpl;
 import com.green.pythonTeam3.ranking.sevice.StatisticsServiceImpl;
+import com.green.pythonTeam3.ranking.vo.FireFactorVO;
 import com.green.pythonTeam3.sido.vo.Python3VO;
 import com.green.pythonTeam3.sido.vo.Python4VO;
 import com.green.pythonTeam3.total.vo.FireStartPlaceVO;
+import com.green.pythonTeam3.total.vo.FirstChelateVO;
 import jakarta.annotation.Resource;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Controller;
@@ -45,21 +47,19 @@ public class StatisticsController {
         //3. 지역별 화재피해
         List<Python3VO> totalLocalDmg = statisticsService.totalLocalDmg();
         model.addAttribute("totalLocalDmg", totalLocalDmg);
-        System.out.println(totalLocalDmg);
 
         return "/content/statistics/statistics";
     }
 
     // 주제별 화재 통계
-    //1. 화재 장소(막대 그래프)
+    //1-1. 화재 장소(막대 그래프)
     @ResponseBody
     @PostMapping("/detailFirePlaceFetch")
-    public Map<String, Object> firePlace(){
+    public Map<String, Object> fetchFirePlaceTotal(){
         Map<String, Object> map = new HashMap<>();
-        //1-1. 3개년 데이터
+        //3개년 데이터
         List<FireStartPlaceVO> totalFirePlace = statisticsService.totalFirePlace();
         map.put("totalFirePlace", totalFirePlace);
-        System.out.println(totalFirePlace);
         return map;
     }
 
@@ -77,6 +77,62 @@ public class StatisticsController {
         map.put("firePlace2023", firePlace2023);
         return map;
     }
+
+    //2-1. 화재 요인(막대그래프)
+    @ResponseBody
+    @PostMapping("/detailFireFactorFetch")
+    public Map<String, Object> fetchFireFactorTotal(){
+        Map<String, Object> map = new HashMap<>();
+        //3개년 데이터 + 토탈값
+        List<FireFactorVO> totalFireFactor = statisticsService.totalFireFactor();
+        map.put("totalFireFactor", totalFireFactor);
+        return map;
+    }
+
+    //2-2. 2021~2023년 화재 요인(원형 그래프)
+    @ResponseBody
+    @PostMapping("/fireFactorFetch")
+    public Map<String, Object> fetchFireFactorData() {
+        Map<String, Object> map = new HashMap<>();
+        //연도별 데이터
+        List<FireFactorVO> fireFactor2021 = statisticsService.fireFactor2021();
+        List<FireFactorVO> fireFactor2022 = statisticsService.fireFactor2022();
+        List<FireFactorVO> fireFactor2023 = statisticsService.fireFactor2023();
+        map.put("fireFactor2021", fireFactor2021);
+        map.put("fireFactor2022", fireFactor2022);
+        map.put("fireFactor2023", fireFactor2023);
+        return map;
+    }
+
+    //3-1. 최초 착화물(막대 그래프)
+    @ResponseBody
+    @PostMapping("/detailFirstChelateFetch")
+    public Map<String, Object> fetchFirstChelateTotal(){
+        Map<String, Object> map = new HashMap<>();
+        //3개년 데이터 + 토탈값
+        List<FirstChelateVO> totalFirstChelate = statisticsService.totalFirstChelate();
+        map.put("totalFirstChelate", totalFirstChelate);
+        return map;
+    }
+
+    //3-2. 2021~2023년 최초 착화물(원형 그래프)
+    @ResponseBody
+    @PostMapping("/firstChelateFetch")
+    public Map<String, Object> fetchFirstChelateData() {
+        Map<String, Object> map = new HashMap<>();
+        //연도별 데이터
+        List<FirstChelateVO> firstChelate2021 = statisticsService.firstChelate2021();
+        List<FirstChelateVO> firstChelate2022 = statisticsService.firstChelate2022();
+        List<FirstChelateVO> firstChelate2023 = statisticsService.firstChelate2023();
+        map.put("firstChelate2021", firstChelate2021);
+        map.put("firstChelate2022", firstChelate2022);
+        map.put("firstChelate2023", firstChelate2023);
+        return map;
+    }
+
+
+
+
 
 
 }

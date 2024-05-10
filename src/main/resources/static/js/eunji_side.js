@@ -79,7 +79,6 @@ async function main() {
                     
 
                     let number = data.occurrences;
-                    console.log(data);
                     let thoundsNum = number.toLocaleString('ko-KR');
                     tooltip.html(`<b>${event.properties.name}</b><br/> <span style="font-size: 20px;"> ${thoundsNum}</span> 건`)
                 })

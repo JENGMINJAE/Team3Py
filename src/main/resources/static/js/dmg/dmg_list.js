@@ -38,6 +38,7 @@ fetch('/dmg/fetchInjPp', { //요청경로
             ]
         },
         options: {
+            responsive: false,
             title: {
                 display: true,
                 text: 'Predicted world population (millions) in 2050'
@@ -57,6 +58,7 @@ fetch('/dmg/fetchInjPp', { //요청경로
             ]
         },
         options: {
+            responsive: false,
             title: {
                 display: true,
                 text: 'Predicted world population (millions) in 2050'
@@ -77,6 +79,7 @@ fetch('/dmg/fetchInjPp', { //요청경로
             ]
         },
         options: {
+            responsive: false,
             title: {
                 display: true,
                 text: 'Predicted world population (millions) in 2050'
@@ -97,6 +100,7 @@ fetch('/dmg/fetchInjPp', { //요청경로
             ]
         },
         options: {
+            responsive: false,
             title: {
                 display: true,
                 text: 'Predicted world population (millions) in 2050'
@@ -194,6 +198,7 @@ fetch('/dmg/fetchMoneyDmg', { //요청경로
             ]
         },
         options: {
+            responsive: false,
             title: {
                 display: true,
                 text: 'Predicted world population (millions) in 2050'
@@ -213,6 +218,7 @@ fetch('/dmg/fetchMoneyDmg', { //요청경로
             ]
         },
         options: {
+            responsive: false,
             title: {
                 display: true,
                 text: 'Predicted world population (millions) in 2050'
@@ -233,6 +239,7 @@ fetch('/dmg/fetchMoneyDmg', { //요청경로
             ]
         },
         options: {
+            responsive: false,
             title: {
                 display: true,
                 text: 'Predicted world population (millions) in 2050'
@@ -253,6 +260,7 @@ fetch('/dmg/fetchMoneyDmg', { //요청경로
             ]
         },
         options: {
+            responsive: false,
             title: {
                 display: true,
                 text: 'Predicted world population (millions) in 2050'

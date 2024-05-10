@@ -18,6 +18,8 @@
     .more-small-layer {
       height: 75px;
       width: 400px;
+      padding-left: 270px;
+      align-items: center;
     }
 
     .layer {
@@ -26,9 +28,9 @@
       background-color: white;
       margin: 35px;
       overflow: hidden;
-      padding: 0 50px;
+      padding: 0 226px;
       position: relative;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
     }
 
     #first_total {
@@ -92,11 +94,21 @@
       </div>
     </div>
 
+    <div class="row mt-5">
+      <div class="col-6 text-center">
+        <span class="badge text-bg-secondary rounded-0 me-2" style="font-size: 23px;">인명피해 통계</span>
+      </div>
+      <div class="col-6 text-center">
+        <span class="badge text-bg-secondary rounded-0 me-2" style="font-size: 23px;">재산피해 통계</span>
+      </div>
+    </div>
+
     <!-- 그래프 -->
     <div class="row">
       <div class="col">
-        <div class="row" style="margin-top: 30px;">
-          <div class="col-6 layer small-layer">
+        <div class="row">
+
+          <div class="col layer small-layer">
             <div class="row" id="first_chart">
               <div class="col">
                 <div class="row">
@@ -159,7 +171,7 @@
             </div>
           </div>
 
-          <div class="col-6 layer small-layer">
+          <div class="col layer small-layer">
             <div class="row" id="second_chart">
               <div class="col">
                 <div class="row">
@@ -171,7 +183,7 @@
                     </div>
                     <div class="row">
                       <div class="col">
-                        <canvas id="doughnut-chartMnDMG2021" style="width: 100%; height: 100%;"></canvas>
+                        <canvas id="doughnut-chartMnDMG2021" style="width: 300; height: 300;"></canvas>
                       </div>
                     </div>
                   </div>
@@ -185,7 +197,7 @@
                     </div>
                     <div class="row">
                       <div class="col">
-                        <canvas id="doughnut-chartMnDMG2022" style="width: 100%; height: 100%;"></canvas>
+                        <canvas id="doughnut-chartMnDMG2022" style="width: 300; height: 300;"></canvas>
                       </div>
                     </div>
                   </div>
@@ -199,7 +211,7 @@
                     </div>
                     <div class="row">
                       <div class="col">
-                        <canvas id="doughnut-chartMnDMG2023" style="width: 100%; height: 100%;"></canvas>
+                        <canvas id="doughnut-chartMnDMG2023" style="width: 300; height: 300;"></canvas>
                       </div>
                     </div>
                   </div>
@@ -213,7 +225,7 @@
                     </div>
                     <div class="row">
                       <div class="col">
-                        <canvas id="doughnut-chartMnDMG2021R" style="width: 100%; height: 100%;"></canvas>
+                        <canvas id="doughnut-chartMnDMG2021R" style="width: 300; height: 300;"></canvas>
                       </div>
                     </div>
                   </div>
@@ -222,27 +234,28 @@
             </div>
           </div>
         </div>
+
         <div class="row">
-          <div class="col-6 layer more-small-layer">
+          <div class="col more-small-layer layer">
             <div class="row" id="first_total">
               <div class="col">
                 <div class="row">
-                  <div class="col" style="height: 75px;">총 부상자 : [[${totalIjd[0]}]]명</div>
+                  <div class="col" style="height: 75px; vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 부상자 : [[${totalIjd[0]}]]명</div>
                 </div>
                 <div class="row">
-                  <div class="col" style="height: 75px;">총 부상자 : [[${totalIjd[1]}]]명</div>
+                  <div class="col" style="height: 75px; vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 부상자 : [[${totalIjd[1]}]]명</div>
                 </div>
                 <div class="row">
-                  <div class="col" style="height: 75px;">총 부상자 : [[${totalIjd[2]}]]명</div>
+                  <div class="col" style="height: 75px; vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 부상자 : [[${totalIjd[2]}]]명</div>
                 </div>
                 <div class="row">
-                  <div class="col" style="height: 75px;">총 부상자 : [[${totalIjd[0]}]]명</div>
+                  <div class="col" style="height: 75px; vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 부상자 : [[${totalIjd[0]}]]명</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-6 layer more-small-layer">
-            <div class="row" id="second_total">
+          <div class="col layer more-small-layer">
+            <div class="row text-align text-center" id="second_total">
               <div class="col">
                 <div class="row">
                   <div class="col" style="height: 75px;">총 피해금액 : [[${totalMoney[0]}]]000\</div>
@@ -264,7 +277,72 @@
     </div>
 
     <!-- 테이블 -->
+
     <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <table class="table table table-hover text-center align-middle">
+              <colgroup>
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+              </colgroup>
+              <thead class="table-group-divider border-success">
+                <tr>
+                  <td style="background-color: #cccccc;">연도</td>
+                  <td class="border-end border border-success">2021</td>
+                  <td class="border-end border border-success">2022</td>
+                  <td>2023</td>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider border-success">
+                <tr>
+                  <td>사고자 수</td>
+                  <td class="border-end border border-success">[[${yearIjd[0].injrdprPercnt}]]</td>
+                  <td class="border-end border border-success">[[${yearIjd[1].injrdprPercnt}]]</td>
+                  <td>[[${yearIjd[2].injrdprPercnt}]]</td>
+                </tr>
+                <tr>
+                  <td>부상자 수</td>
+                  <td class="border-end border border-success">[[${yearIjd[0].vctmPercnt}]]</td>
+                  <td class="border-end border border-success">[[${yearIjd[1].vctmPercnt}]]</td>
+                  <td>[[${yearIjd[2].vctmPercnt}]]</td>
+                </tr>
+                <tr>
+                  <td>총 인명 피해자 수</td>
+                  <td class="border-end border border-success">[[${totalIjd[0]}]]</td>
+                  <td class="border-end border border-success">[[${totalIjd[1]}]]</td>
+                  <td>[[${totalIjd[2]}]]</td>
+                </tr>
+                <tr>
+                  <td>동산피해</td>
+                  <td class="border-end border border-success">[[${yearMoney[0].perpDmgAmt}]]000\</td>
+                  <td class="border-end border border-success">[[${yearMoney[1].perpDmgAmt}]]000\</td>
+                  <td>[[${yearMoney[2].perpDmgAmt}]]000\</td>
+                </tr>
+                <tr>
+                  <td>부동산피해</td>
+                  <td class="border-end border border-success">[[${yearMoney[0].restDmgAmt}]]000\</td>
+                  <td class="border-end border border-success">[[${yearMoney[1].restDmgAmt}]]000\</td>
+                  <td>[[${yearMoney[2].restDmgAmt}]]000\</td>
+                </tr>
+                <tr>
+                  <td>총 재산피해 소계 금액</td>
+                  <td class="border-end border border-success">[[${totalMoney[0]}]]000\</td>
+                  <td class="border-end border border-success">[[${totalMoney[1]}]]000\</td>
+                  <td>[[${totalMoney[2]}]]000\</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- <div class="row">
       <div class="col">
         <table class="table text-center">
           <colgroup>
@@ -321,7 +399,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
 
 
   </div>

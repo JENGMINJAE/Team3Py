@@ -32,8 +32,11 @@ fetch('/dmg/fetchInjPp', { //요청경로
             datasets: [
                 {
                     label: "2021",
-                    backgroundColor: ['#3e95cd','#8e5ea2'],
-                    data: [data[0].vctmPercnt, data[0].injrdprPercnt]
+                    data: [data[0].vctmPercnt, data[0].injrdprPercnt],
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.3)',
+                        'rgba(255, 159, 64, 0.8)'
+                    ]
                 }
             ]
         },
@@ -52,7 +55,10 @@ fetch('/dmg/fetchInjPp', { //요청경로
             datasets: [
                 {
                     label: "2021",
-                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.3)',
+                        'rgba(255, 159, 64, 0.8)'
+                    ],
                     data: [data[0].vctmPercnt, data[0].injrdprPercnt]
                 }
             ]
@@ -74,7 +80,11 @@ fetch('/dmg/fetchInjPp', { //요청경로
                 {
                     label: "2022",
                     backgroundColor: ["#e8c3b9", "#c45850"],
-                    data: [data[1].vctmPercnt, data[1].injrdprPercnt]
+                    data: [data[1].vctmPercnt, data[1].injrdprPercnt],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.3)',
+                        'rgba(75, 192, 192, 0.8)'
+                    ]
                 }
             ]
         },
@@ -95,7 +105,11 @@ fetch('/dmg/fetchInjPp', { //요청경로
                 {
                     label: "2023",
                     backgroundColor: ["#e8c3b9", "#c45850"],
-                    data: [data[2].vctmPercnt, data[2].injrdprPercnt]
+                    data: [data[2].vctmPercnt, data[2].injrdprPercnt],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.3)',
+                        'rgba(54, 162, 235, 0.8)'
+                    ]
                 }
             ]
         },
@@ -192,8 +206,11 @@ fetch('/dmg/fetchMoneyDmg', { //요청경로
             datasets: [
                 {
                     label: "2021",
-                    backgroundColor: ['#3e95cd','#8e5ea2'],
-                    data: [data[0].perpDmgAmt, data[0].restDmgAmt]
+                    data: [data[0].perpDmgAmt, data[0].restDmgAmt],
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.3)',
+                        'rgba(255, 159, 64, 0.8)'
+                    ]
                 }
             ]
         },
@@ -212,7 +229,10 @@ fetch('/dmg/fetchMoneyDmg', { //요청경로
             datasets: [
                 {
                     label: "2021",
-                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.3)',
+                        'rgba(255, 159, 64, 0.8)'
+                    ],
                     data: [data[0].perpDmgAmt, data[0].restDmgAmt]
                 }
             ]
@@ -234,7 +254,11 @@ fetch('/dmg/fetchMoneyDmg', { //요청경로
                 {
                     label: "2022",
                     backgroundColor: ["#e8c3b9", "#c45850"],
-                    data: [data[1].perpDmgAmt, data[1].restDmgAmt]
+                    data: [data[1].perpDmgAmt, data[1].restDmgAmt],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.3)',
+                        'rgba(75, 192, 192, 0.8)'
+                    ]
                 }
             ]
         },
@@ -255,7 +279,11 @@ fetch('/dmg/fetchMoneyDmg', { //요청경로
                 {
                     label: "2023",
                     backgroundColor: ["#e8c3b9", "#c45850"],
-                    data: [data[2].perpDmgAmt, data[2].restDmgAmt]
+                    data: [data[2].perpDmgAmt, data[2].restDmgAmt],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.3)',
+                        'rgba(54, 162, 235, 0.8)'
+                    ]
                 }
             ]
         },

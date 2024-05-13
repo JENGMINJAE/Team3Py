@@ -44,6 +44,7 @@ public class StatisticsController {
 
         totalOccAndProperty.setTotalOccurrences(totalOccAndProperty.getTotalOccurrences()/3);
 
+
         List<String> totalOccAndProperty2 = new ArrayList<>();
         totalOccAndProperty2.add(decimalFormat.format(totalOccAndProperty.getPropertyDamage2021()));
         totalOccAndProperty2.add(decimalFormat.format(totalOccAndProperty.getPropertyDamage2022()));

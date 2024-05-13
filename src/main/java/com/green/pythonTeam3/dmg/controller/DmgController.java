@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -22,7 +24,17 @@ public class DmgController {
 
     @GetMapping("/dmgList")
     public String dmgList(Model model){
-        model.addAttribute("totalIjd",dmgService.totalIjd());
+        List<Integer> intTotalIjd =  dmgService.totalIjd();
+        List<String> totalIjd = new ArrayList<>();
+        DecimalFormat decimalFormat = new DecimalFormat("###,###");
+
+        for (int i = 0 ; i < intTotalIjd.size(); i++){
+            System.out.println(i);
+        }
+
+
+
+        model.addAttribute("totalIjd",totalIjd);
         model.addAttribute("totalMoney",dmgService.totalMoney());
         model.addAttribute("yearIjd",dmgService.ijdPp());
         model.addAttribute("yearMoney",dmgService.moneyDmg());

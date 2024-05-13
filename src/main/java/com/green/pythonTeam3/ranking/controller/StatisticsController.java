@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,20 +35,52 @@ public class StatisticsController {
     public String statisticsFirst(Model model){
         //1. 3개년 전체 발생건수 & 피해금액, 각 연도별 발생건수 & 피해금액
         Python4VO totalOccAndProperty = statisticsService.totalOccAndProperty();
+        DecimalFormat decimalFormat = new DecimalFormat("###,###");
         //피해금액 [단위: 억]으로 나누기
         totalOccAndProperty.setPropertyDamage2021(totalOccAndProperty.getPropertyDamage2021() / 100000);
         totalOccAndProperty.setPropertyDamage2022(totalOccAndProperty.getPropertyDamage2022() / 100000);
         totalOccAndProperty.setPropertyDamage2023(totalOccAndProperty.getPropertyDamage2023() / 100000);
-        totalOccAndProperty.setTotalPropertyDamage(totalOccAndProperty.getTotalPropertyDamage() / 100000);
-        model.addAttribute("totalOccAndProperty", totalOccAndProperty);
+        totalOccAndProperty.setTotalPropertyDamage(totalOccAndProperty.getTotalPropertyDamage() / 300000);
+
+        totalOccAndProperty.setTotalOccurrences(totalOccAndProperty.getTotalOccurrences()/3);
+
+        List<String> totalOccAndProperty2 = new ArrayList<>();
+        totalOccAndProperty2.add(decimalFormat.format(totalOccAndProperty.getPropertyDamage2021()));
+        totalOccAndProperty2.add(decimalFormat.format(totalOccAndProperty.getPropertyDamage2022()));
+        totalOccAndProperty2.add(decimalFormat.format(totalOccAndProperty.getPropertyDamage2023()));
+        totalOccAndProperty2.add(decimalFormat.format(totalOccAndProperty.getTotalPropertyDamage()));
+
+        List<String> totalOccAndProperty3 = new ArrayList<>();
+        totalOccAndProperty3.add(decimalFormat.format(totalOccAndProperty.getOccurrences2021()));
+        totalOccAndProperty3.add(decimalFormat.format(totalOccAndProperty.getOccurrences2022()));
+        totalOccAndProperty3.add(decimalFormat.format(totalOccAndProperty.getOccurrences2023()));
+        totalOccAndProperty3.add(decimalFormat.format(totalOccAndProperty.getTotalOccurrences()));
+
+        model.addAttribute("totalOccAndProperty2", totalOccAndProperty2);
+        model.addAttribute("totalOccAndProperty3", totalOccAndProperty3);
+
 
         //2. 3개년 전체 인명피해
         Python3VO totalLifeDmg = statisticsService.totalLifeDmg();
-        model.addAttribute("totalLifeDmg", totalLifeDmg);
+        List<String> totalLifeDmg2 = new ArrayList<>();
+        totalLifeDmg2.add(decimalFormat.format(totalLifeDmg.getLifeDmgPercnt2021()));
+        totalLifeDmg2.add(decimalFormat.format(totalLifeDmg.getLifeDmgPercnt2022()));
+        totalLifeDmg2.add(decimalFormat.format(totalLifeDmg.getLifeDmgPercnt2023()));
+        totalLifeDmg.setTotalLifeDmgPercnt(totalLifeDmg.getTotalLifeDmgPercnt()/3);
+        totalLifeDmg2.add(decimalFormat.format(totalLifeDmg.getTotalLifeDmgPercnt()));
+        model.addAttribute("totalLifeDmg2", totalLifeDmg2);
 
         //3. 지역별 화재피해
         List<Python3VO> totalLocalDmg = statisticsService.totalLocalDmg();
+        List<String> totalLocalDmg2 = new ArrayList<>();
+        totalLocalDmg2.add(decimalFormat.format(totalLocalDmg.get(0).getOccurrencesCount2021()));
+        totalLocalDmg2.add(decimalFormat.format(totalLocalDmg.get(0).getOccurrencesCount2022()));
+        totalLocalDmg2.add(decimalFormat.format(totalLocalDmg.get(0).getOccurrencesCount2023()));
+        totalLocalDmg.get(0).setTotalOccurrencesCount(totalLocalDmg.get(0).getTotalOccurrencesCount()/3);
+        totalLocalDmg2.add(decimalFormat.format(totalLocalDmg.get(0).getTotalOccurrencesCount()));
+
         model.addAttribute("totalLocalDmg", totalLocalDmg);
+        model.addAttribute("totalLocalDmg2", totalLocalDmg2);
 
         return "/content/statistics/statistics";
     }

@@ -290,7 +290,7 @@ fetch('/statistics/firePlaceFetch', {
       responsive: false,
       title: {
         display: true,
-        text: '2023년 통계  |  ' + total + '건',
+        text: '발화장소 통계  |  ' + total + '건',
         fontSize: 20
       }
     }

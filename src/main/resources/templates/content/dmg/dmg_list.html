@@ -26,9 +26,9 @@
       border: 1px solid #dddddd;
       border-radius: 10px;
       background-color: white;
-      margin: 35px;
+      margin: 35px 210px;
       overflow: hidden;
-      padding: 0 226px;
+      padding: 0 50px;
       position: relative;
       /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
     }
@@ -63,6 +63,14 @@
 
     #second_chart>div {
       padding: 0px;
+    }
+    .totals{
+      height : 75px;
+      padding: 25px;
+    }
+    .totals2{
+      height : 75px;
+      padding: 25px 0px;
     }
   </style>
 
@@ -220,7 +228,7 @@
                   <div class="col">
                     <div class="row">
                       <div class="col">
-                        <h4 style="font-weight: bold; text-align: center;">2021 인명피해</h4>
+                        <h4 style="font-weight: bold; text-align: center;">2021 재산피해</h4>
                       </div>
                     </div>
                     <div class="row">
@@ -236,38 +244,38 @@
         </div>
 
         <div class="row">
-          <div class="col more-small-layer layer">
-            <div class="row" id="first_total">
-              <div class="col">
+          <div class="col layer more-small-layer">
+            <div class="row" style="height: 100%; display: flex; justify-content: center;">
+              <div class="col" id="first_total" style="width: 50%; margin: 0 auto;">
                 <div class="row">
-                  <div class="col" style="height: 75px; vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 부상자 : [[${totalIjd[0]}]]명</div>
+                  <div class="col totals">총 부상자 : [[${totalIjd[0]}]]명</div>
                 </div>
                 <div class="row">
-                  <div class="col" style="height: 75px; vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 부상자 : [[${totalIjd[1]}]]명</div>
+                  <div class="col totals">총 부상자 : [[${totalIjd[1]}]]명</div>
                 </div>
                 <div class="row">
-                  <div class="col" style="height: 75px; vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 부상자 : [[${totalIjd[2]}]]명</div>
+                  <div class="col totals">총 부상자 : [[${totalIjd[2]}]]명</div>
                 </div>
                 <div class="row">
-                  <div class="col" style="height: 75px; vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 부상자 : [[${totalIjd[0]}]]명</div>
+                  <div class="col totals">총 부상자 : [[${totalIjd[0]}]]명</div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col layer more-small-layer">
-            <div class="row text-align text-center" id="second_total">
-              <div class="col">
+            <div class="row" style="height: 100%; display: flex; justify-content: center;">
+              <div class="col" id="second_total" style="width: 70%; margin: 0 auto;">
                 <div class="row">
-                  <div class="col" style="height: 75px;">총 피해금액 : [[${totalMoney[0]}]]000\</div>
+                  <div class="col totals2">총 피해금액 : [[${totalMoney[0]}]],000원</div>
                 </div>
                 <div class="row">
-                  <div class="col" style="height: 75px;">총 피해금액 : [[${totalMoney[1]}]]000\</div>
+                  <div class="col totals2">총 피해금액 : [[${totalMoney[1]}]],000원</div>
                 </div>
                 <div class="row">
-                  <div class="col" style="height: 75px;">총 피해금액 : [[${totalMoney[2]}]]000\</div>
+                  <div class="col totals2">총 피해금액 : [[${totalMoney[2]}]],000원</div>
                 </div>
                 <div class="row">
-                  <div class="col" style="height: 75px;">총 피해금액 : [[${totalMoney[0]}]]000\</div>
+                  <div class="col totals2">총 피해금액 : [[${totalMoney[0]}]],000원</div>
                 </div>
               </div>
             </div>
@@ -291,48 +299,48 @@
               </colgroup>
               <thead class="table-group-divider border-success">
                 <tr>
-                  <td style="background-color: #cccccc;">연도</td>
-                  <td class="border-end border border-success">2021</td>
-                  <td class="border-end border border-success">2022</td>
-                  <td>2023</td>
+                  <td style="background-color: #bbbbbb;">연도</td>
+                  <td class="border-end border border-success" style="background-color: #bbbbbb;">2021</td>
+                  <td class="border-end border border-success" style="background-color: #bbbbbb;">2022</td>
+                  <td style="background-color: #bbbbbb;">2023</td>
                 </tr>
               </thead>
               <tbody class="table-group-divider border-success">
                 <tr>
-                  <td>사고자 수</td>
-                  <td class="border-end border border-success">[[${yearIjd[0].injrdprPercnt}]]</td>
-                  <td class="border-end border border-success">[[${yearIjd[1].injrdprPercnt}]]</td>
-                  <td>[[${yearIjd[2].injrdprPercnt}]]</td>
+                  <td style="background-color: #dddddd;">사고자 수</td>
+                  <td class="border-end border border-success">[[${yearInjrdprPercnt[0]}]]명</td>
+                  <td class="border-end border border-success">[[${yearInjrdprPercnt[1]}]]명</td>
+                  <td>[[${yearInjrdprPercnt[2]}]]명</td>
                 </tr>
                 <tr>
-                  <td>부상자 수</td>
-                  <td class="border-end border border-success">[[${yearIjd[0].vctmPercnt}]]</td>
-                  <td class="border-end border border-success">[[${yearIjd[1].vctmPercnt}]]</td>
-                  <td>[[${yearIjd[2].vctmPercnt}]]</td>
+                  <td style="background-color: #dddddd;">부상자 수</td>
+                  <td class="border-end border border-success">[[${yearVctmPercnt[0]}]]명</td>
+                  <td class="border-end border border-success">[[${yearVctmPercnt[1]}]]명</td>
+                  <td>[[${yearVctmPercnt[2]}]]명</td>
                 </tr>
                 <tr>
-                  <td>총 인명 피해자 수</td>
-                  <td class="border-end border border-success">[[${totalIjd[0]}]]</td>
-                  <td class="border-end border border-success">[[${totalIjd[1]}]]</td>
-                  <td>[[${totalIjd[2]}]]</td>
+                  <td style="background-color: #bbbbbb;">총 인명 피해자 수</td>
+                  <td class="border-end border border-success" style="background-color: #dddddd;">[[${totalIjd[0]}]]명</td>
+                  <td class="border-end border border-success" style="background-color: #dddddd;">[[${totalIjd[1]}]]명</td>
+                  <td style="background-color: #dddddd;">[[${totalIjd[2]}]]명</td>
                 </tr>
                 <tr>
-                  <td>동산피해</td>
-                  <td class="border-end border border-success">[[${yearMoney[0].perpDmgAmt}]]000\</td>
-                  <td class="border-end border border-success">[[${yearMoney[1].perpDmgAmt}]]000\</td>
-                  <td>[[${yearMoney[2].perpDmgAmt}]]000\</td>
+                  <td style="background-color: #dddddd;">동산피해</td>
+                  <td class="border-end border border-success">[[${yearPerpDmgAmt[0]}]],000원</td>
+                  <td class="border-end border border-success">[[${yearPerpDmgAmt[1]}]],000원</td>
+                  <td>[[${yearPerpDmgAmt[2]}]],000원</td>
                 </tr>
                 <tr>
-                  <td>부동산피해</td>
-                  <td class="border-end border border-success">[[${yearMoney[0].restDmgAmt}]]000\</td>
-                  <td class="border-end border border-success">[[${yearMoney[1].restDmgAmt}]]000\</td>
-                  <td>[[${yearMoney[2].restDmgAmt}]]000\</td>
+                  <td style="background-color: #dddddd;">부동산피해</td>
+                  <td class="border-end border border-success">[[${yearRestDmgAmt[0]}]],000원</td>
+                  <td class="border-end border border-success">[[${yearRestDmgAmt[1]}]],000원</td>
+                  <td>[[${yearRestDmgAmt[2]}]],000원</td>
                 </tr>
                 <tr>
-                  <td>총 재산피해 소계 금액</td>
-                  <td class="border-end border border-success">[[${totalMoney[0]}]]000\</td>
-                  <td class="border-end border border-success">[[${totalMoney[1]}]]000\</td>
-                  <td>[[${totalMoney[2]}]]000\</td>
+                  <td style="background-color: #bbbbbb;">총 재산피해 소계 금액</td>
+                  <td class="border-end border border-success" style="background-color: #dddddd;">[[${totalMoney[0]}]],000원</td>
+                  <td class="border-end border border-success" style="background-color: #dddddd;">[[${totalMoney[1]}]],000원</td>
+                  <td style="background-color: #dddddd;">[[${totalMoney[2]}]],000원</td>
                 </tr>
               </tbody>
             </table>
@@ -342,64 +350,6 @@
     </div>
     
 
-    <!-- <div class="row">
-      <div class="col">
-        <table class="table text-center">
-          <colgroup>
-            <col width="25%">
-            <col width="25%">
-            <col width="25%">
-            <col width="25%">
-          </colgroup>
-          <thead>
-            <tr>
-              <td>연도</td>
-              <td>2021</td>
-              <td>2022</td>
-              <td>2023</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>사고자 수</td>
-              <td>[[${yearIjd[0].injrdprPercnt}]]</td>
-              <td>[[${yearIjd[1].injrdprPercnt}]]</td>
-              <td>[[${yearIjd[2].injrdprPercnt}]]</td>
-            </tr>
-            <tr>
-              <td>부상자 수</td>
-              <td>[[${yearIjd[0].vctmPercnt}]]</td>
-              <td>[[${yearIjd[1].vctmPercnt}]]</td>
-              <td>[[${yearIjd[2].vctmPercnt}]]</td>
-            </tr>
-            <tr>
-              <td>총 인명 피해자 수</td>
-              <td>[[${totalIjd[0]}]]</td>
-              <td>[[${totalIjd[1]}]]</td>
-              <td>[[${totalIjd[2]}]]</td>
-            </tr>
-            <tr>
-              <td>동산피해</td>
-              <td>[[${yearMoney[0].perpDmgAmt}]]000\</td>
-              <td>[[${yearMoney[1].perpDmgAmt}]]000\</td>
-              <td>[[${yearMoney[2].perpDmgAmt}]]000\</td>
-            </tr>
-            <tr>
-              <td>부동산피해</td>
-              <td>[[${yearMoney[0].restDmgAmt}]]000\</td>
-              <td>[[${yearMoney[1].restDmgAmt}]]000\</td>
-              <td>[[${yearMoney[2].restDmgAmt}]]000\</td>
-            </tr>
-            <tr>
-              <td>총 재산피해 소계 금액</td>
-              <td>[[${totalMoney[0]}]]000\</td>
-              <td>[[${totalMoney[1]}]]000\</td>
-              <td>[[${totalMoney[2]}]]000\</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div> -->
 
 
   </div>

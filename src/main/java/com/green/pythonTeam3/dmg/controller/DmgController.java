@@ -25,26 +25,47 @@ public class DmgController {
     @GetMapping("/dmgList")
     public String dmgList(Model model){
         List<Integer> intTotalIjd =  dmgService.totalIjd();
+        List<Integer> intTotalMoney = dmgService.totalMoney();
+        List<FiveVO> fYearIjd = dmgService.ijdPp();
+        List<SixVO> sYearMoney = dmgService.moneyDmg();
         List<String> totalIjd = new ArrayList<>();
+        List<String> totalMoney = new ArrayList<>();
+        List<String> yearInjrdprPercnt = new ArrayList<>();
+        List<String> yearVctmPercnt = new ArrayList<>();
+        List<String> yearPerpDmgAmt = new ArrayList<>();
+        List<String> yearRestDmgAmt = new ArrayList<>();
         DecimalFormat decimalFormat = new DecimalFormat("###,###");
 
         for (int i = 0 ; i < intTotalIjd.size(); i++){
-            System.out.println(i);
+            totalIjd.add(decimalFormat.format(intTotalIjd.get(i)));
+        }
+        for (int i = 0 ; i < intTotalMoney.size(); i++){
+            totalMoney.add(decimalFormat.format(intTotalMoney.get(i)));
+        }
+        for (int i = 0 ; i < fYearIjd.size(); i++){
+            yearInjrdprPercnt.add(decimalFormat.format(fYearIjd.get(i).getInjrdprPercnt()));
+            yearVctmPercnt.add(decimalFormat.format(fYearIjd.get(i).getVctmPercnt()));
+        }
+        for (int i = 0 ; i < sYearMoney.size(); i++){
+            yearPerpDmgAmt.add(decimalFormat.format(sYearMoney.get(i).getPerpDmgAmt()));
+            yearRestDmgAmt.add(decimalFormat.format(sYearMoney.get(i).getRestDmgAmt()));
         }
 
-
-
         model.addAttribute("totalIjd",totalIjd);
-        model.addAttribute("totalMoney",dmgService.totalMoney());
-        model.addAttribute("yearIjd",dmgService.ijdPp());
-        model.addAttribute("yearMoney",dmgService.moneyDmg());
+        model.addAttribute("totalMoney",totalMoney);
+        model.addAttribute("yearInjrdprPercnt",yearInjrdprPercnt);
+        model.addAttribute("yearVctmPercnt",yearVctmPercnt);
+        model.addAttribute("yearPerpDmgAmt",yearPerpDmgAmt);
+        model.addAttribute("yearRestDmgAmt",yearRestDmgAmt);
         return "/content/dmg/dmg_list";
     }
+
     @ResponseBody
     @PostMapping("/fetchInjPp")
     public List<FiveVO> fetchInjPp(){
         return dmgService.ijdPp();
     }
+
     @ResponseBody
     @PostMapping("/fetchMoneyDmg")
     public List<SixVO> fetchMoneyDmg(){

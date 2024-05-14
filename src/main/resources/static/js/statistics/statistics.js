@@ -290,7 +290,7 @@ fetch('/statistics/firePlaceFetch', {
       responsive: false,
       title: {
         display: true,
-        text: '2023년 통계  |  ' + total + '건',
+        text: '발화장소 통계  |  ' + total + '건',
         fontSize: 20
       }
     }
@@ -406,7 +406,7 @@ fetch('/statistics/fireFactorFetch', {
       labels: chartDataLabels, // 장소 라벨
       datasets: [
         {
-          label: "발화 장소",
+          label: "발화 요인",
           data: chartDataCounts, //카운트
           backgroundColor: [
             'rgba(255, 99, 132, 0.8)',
@@ -423,7 +423,7 @@ fetch('/statistics/fireFactorFetch', {
       responsive: false,
       title: {
         display: true,
-        text: '발화장소 통계  |  ' + total + '건',
+        text: '발화요인 통계  |  ' + total + '건',
         fontSize : 20
       }
     }
@@ -478,7 +478,7 @@ fetch('/statistics/fireFactorFetch', {
       labels: chartDataLabels, // 장소 라벨
       datasets: [
         {
-          label: "발화 장소",
+          label: "발화 요인",
           data: chartDataCounts, //카운트
           backgroundColor: [
             'rgba(255, 99, 132, 0.8)',
@@ -495,7 +495,7 @@ fetch('/statistics/fireFactorFetch', {
       responsive: false,
       title: {
         display: true,
-        text: '발화장소 통계  |  ' + total + '건',
+        text: '발화요인 통계  |  ' + total + '건',
         fontSize : 20
       }
     }
@@ -550,7 +550,7 @@ fetch('/statistics/fireFactorFetch', {
       labels: chartDataLabels, // 장소 라벨
       datasets: [
         {
-          label: "발화 장소",
+          label: "발화 요인",
           data: chartDataCounts, //카운트
           backgroundColor: [
             'rgba(255, 99, 132, 0.8)',
@@ -567,7 +567,7 @@ fetch('/statistics/fireFactorFetch', {
       responsive: false,
       title: {
         display: true,
-        text: '발화장소 통계  |  ' + total + '건',
+        text: '발화요인 통계  |  ' + total + '건',
         fontSize : 20
       }
     }

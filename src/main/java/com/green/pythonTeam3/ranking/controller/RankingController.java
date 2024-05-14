@@ -79,7 +79,7 @@ public class RankingController {
     @PostMapping("/avgThreeYears")
     public Map<String, Object> avgThreeYears(){
         Map<String, Object> result = new HashMap<>();
-        DecimalFormat df = new DecimalFormat("#.##"); // 반올림
+        DecimalFormat df = new DecimalFormat("##.##"); // 반올림
         FirePlaceVO vo1 = rankingService.avgFirePlace();
         FireFactorVO vo2 = rankingService.avgFireFactor();
         double avgPlace = Double.parseDouble(df.format(vo1.getAvgOccurrences()));

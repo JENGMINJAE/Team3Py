@@ -78,7 +78,7 @@ function convertToKoreanNumber(numk) {
 
     let result = ''; 
     let digits = ['영','일','이','삼','사','오','육','칠','팔','구']; 
-    let units = ['', '십', '백', '천', '만', '십', '백', '천', '억', '십억', '백억', '천억', '조', '십조', '백조', '천조']; 
+    let units = ['', '십', '백', '천', '만', '십', '백', '천', '억', '십', '백', '천', '조', '십조', '백조', '천조']; 
     let numStr = num.toString(); // 문자열로 변환 
     let numLen = numStr.length; // 문자열의 길이 
     

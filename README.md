@@ -1,4 +1,6 @@
-![header](https://capsule-render.vercel.app/api?type=Rounded&color=ffa500&height=200&section=header&text=화재발생%20모니터링%20시스템🚒&desc=공공데이터%20API%20소방청%20화재정보데이터%20활용&fontSize=40&fontAlignY=45&descSize=20&descAlignY=65&fontColor=FFFFFF)
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=Rounded&color=ffa500&height=180&section=header&text=화재발생%20모니터링%20시스템🚒&desc=공공데이터%20API%20소방청%20화재정보데이터%20활용&fontSize=40&fontAlignY=45&descSize=20&descAlignY=65&fontColor=FFFFFF" style="width: 100%; height: auto;">
+</div>
 
 ## 🖥️프로그램 소개
 - 소방청 국가화재정보 데이터를 활용한 화재발생 모니터링 시스템 구축 <br/>
@@ -11,7 +13,7 @@
 
 ## 💼개발 환경&요구 조건
 #### 1) 개발환경
-<div align=center>
+<div align=left>
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
   <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=OpenJDK&logoColor=white">
   <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white">
